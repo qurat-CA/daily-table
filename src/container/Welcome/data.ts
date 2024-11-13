@@ -1,10 +1,12 @@
 import {Colors} from '../../config/color';
 import {SVGS} from '../../config/images';
+import {ImageSourcePropType} from 'react-native'; // Importing the type for image source prop
+import {ScreenDataType} from '../../config/type/appDataType';
 
-export const SCREEN_DATA = [
+export const SCREEN_DATA: ScreenDataType[] = [
   {
-    title: 'Welcome to the App!',
-    description: 'Here is a short description of what the app does.',
+    title: 'Welcome To Daily Tables',
+    description: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,`,
     bgImage: require('../../assets/images/dummy-bg.jpg'),
     WelcomeImg: SVGS.Welcome1,
     bgColor: Colors.purple,

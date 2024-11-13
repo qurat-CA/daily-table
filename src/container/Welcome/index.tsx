@@ -1,82 +1,71 @@
-import {useState, useEffect} from 'react';
-import {View, Text, ImageBackground, Dimensions, Animated} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {View, Text, ImageBackground} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
 import {SCREEN_DATA} from './data';
-import {Colors} from '../../config/color';
-import {Metrix, NavigationService} from '../../config';
+import {Metrix, NavigationService, Images, Colors} from '../../config';
+import {ScreenDataType} from '../../config/type/appDataType';
+import {StandardButton, Typography} from '../../components';
 import styles from './style';
-import StandardButton from '../../components/button';
-import Typography from '../../components/Typography';
 
-const {width} = Dimensions.get('window');
+type RenderItemType = {
+  item: ScreenDataType;
+  index: number;
+};
 
 const IntroSlider = () => {
-  const [scrollX, setScrollX] = useState(0);
-  const navigation = useNavigation();
-  const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
-
-  const renderItem = ({item}: any) => {
+  const renderItem = ({item, index}: RenderItemType) => {
     return (
-      <Animated.View style={{flex: 1, opacity: fadeAnim}}>
+      <ImageBackground source={Images.AppBackgroundImage} style={{flex: 1}}>
         <ImageBackground
-          source={require('../../assets/images/dummy-bg.png')}
-          style={{flex: 1}}>
-          <ImageBackground
-            source={require('../../assets/images/half-circle.png')}
-            style={{height: Metrix.VerticalSize(500), overflow: 'hidden'}}>
-            <SafeAreaView>
-              <View style={styles.skipBtn}>
-                <StandardButton
-                  onPress={() => {}}
-                  title="Skip"
-                  bgColor={Colors.pink}
-                />
-              </View>
-              <View
-                style={[
-                  styles.rectangle,
-                  {
-                    backgroundColor: item.bgColor,
-                    transform: [{rotate: item.rotation}],
-                  },
-                ]}
-              />
-              <View style={{zIndex: 2}}>
-                <item.WelcomeImg width={370} height={330} />
-              </View>
-            </SafeAreaView>
-          </ImageBackground>
-          <View style={styles.textCont}>
-            <Typography>{item.title}</Typography>
-            <Text style={styles.description}>{item.description}</Text>
+          source={Images.HalfCircle}
+          style={{
+            height: Metrix.VerticalSize(516),
+            overflow: 'hidden',
+          }}>
+          <View style={styles.skipBtn}>
+            <StandardButton
+              onPress={() => {}}
+              title="Skip"
+              bgColor={Colors.pink}
+            />
+          </View>
+
+          <View
+            style={[
+              styles.rectangle,
+              {
+                backgroundColor: item.bgColor,
+                transform: [{rotate: item.rotation}],
+              },
+            ]}
+          />
+
+          <View style={{zIndex: 2, overflow: 'hidden'}}>
+            <item.WelcomeImg width={365} height={365} />
           </View>
         </ImageBackground>
-      </Animated.View>
+
+        <View style={styles.textCont}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Typography size={25} bold color={Colors.blue} textAlign="center">
+              Welcome To
+            </Typography>
+            <Typography size={25} bold textAlign="center" color="#EC1A73">
+              {' '}
+              Daily Tables
+            </Typography>
+          </View>
+          <Typography
+            color={Colors.white}
+            mT={20}
+            size={12}
+            textAlign="center"
+            lineHeight={24}>
+            {item.description}
+          </Typography>
+        </View>
+      </ImageBackground>
     );
-  };
-
-  const onScroll = (event: any) => {
-    const contentOffsetX = event.nativeEvent.contentOffset.x;
-    setScrollX(contentOffsetX);
-  };
-
-  const onSlideChange = (index: number) => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-
-    setTimeout(() => {
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
-    }, 500);
   };
 
   const onDone = () => {
@@ -85,7 +74,6 @@ const IntroSlider = () => {
 
   return (
     <AppIntroSlider
-      onScroll={onScroll}
       renderItem={renderItem}
       data={SCREEN_DATA}
       onDone={onDone}
@@ -93,21 +81,8 @@ const IntroSlider = () => {
       showDoneButton={false}
       showNextButton={false}
       onSkip={onDone}
-      onSlideChange={index => {
-        onSlideChange(index);
-      }}
-      activeDotStyle={{
-        backgroundColor: Colors.blue,
-        width: Metrix.HorizontalSize(33),
-        height: Metrix.VerticalSize(8),
-        borderRadius: 5,
-      }}
-      dotStyle={{
-        backgroundColor: '#D9D9D9',
-        width: Metrix.HorizontalSize(8),
-        height: Metrix.VerticalSize(8),
-        borderRadius: 5,
-      }}
+      activeDotStyle={styles.activeDotStyle}
+      dotStyle={styles.dotStyle}
     />
   );
 };

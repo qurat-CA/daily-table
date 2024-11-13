@@ -4,15 +4,14 @@ import {persist, createJSONStorage} from 'zustand/middleware';
 
 type BaseUrl_Type = {
   url: string;
-  updateUrl:(url: string) => void;
+  updateUrl: (url: string) => void;
 };
 
 const baseUrl = create<BaseUrl_Type>()(
   persist(
     set => ({
       url: '',
-      updateUrl: (url) => set(() => ({url})),
-
+      updateUrl: url => set(() => ({url})),
     }),
     {
       name: 'base-url',
@@ -22,5 +21,5 @@ const baseUrl = create<BaseUrl_Type>()(
 );
 
 export default {
-    baseUrl,
+  baseUrl,
 };

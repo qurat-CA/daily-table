@@ -15,10 +15,6 @@ export const SVGS = {
 };
 
 export const Images = {
-  Logo: require('../../assets/images/logo.svg'),
-  AppNameText: require('../../assets/images/app-name-text.svg'),
-  HalfCircle: require('../../assets/images/half-circle.svg'),
-  Welcome1: require('../../assets/images/welcome-1.svg'),
-  Welcome2: require('../../assets/images/welcome-2.svg'),
-  Welcome3: require('../../assets/images/welcome-3.svg'),
+  AppBackgroundImage: require('../../assets/images/dummy-bg.png'),
+  HalfCircle: require('../../assets/images/half-circle.png'),
 };

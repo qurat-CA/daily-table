@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Metrix} from '../../config';
+import {fonts, Metrix} from '../../config';
 import {Colors} from '../../config/color';
 
 export default StyleSheet.create({
@@ -7,6 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: Metrix.HorizontalSize(45),
   },
   title: {
     fontSize: 30,
@@ -34,7 +35,19 @@ export default StyleSheet.create({
     width: Metrix.HorizontalSize(65),
     height: Metrix.VerticalSize(35),
     alignSelf: 'flex-end',
-    marginTop: Metrix.VerticalSize(19),
+    marginTop: Metrix.VerticalSize(60),
     marginRight: Metrix.HorizontalSize(23),
+  },
+  activeDotStyle: {
+    backgroundColor: Colors.blue,
+    width: Metrix.HorizontalSize(33),
+    height: Metrix.VerticalSize(8),
+    borderRadius: 5,
+  },
+  dotStyle: {
+    backgroundColor: '#D9D9D9',
+    width: Metrix.HorizontalSize(8),
+    height: Metrix.VerticalSize(8),
+    borderRadius: 5,
   },
 });
