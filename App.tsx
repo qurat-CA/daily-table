@@ -4,7 +4,7 @@ import {useNetInfo} from '@react-native-community/netinfo';
 import Navigation from './src';
 
 const App = () => {
-  const {type, isConnected} = useNetInfo();
+  const {isConnected} = useNetInfo();
   return (
     <>
       <StatusBar
