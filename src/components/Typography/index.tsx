@@ -28,6 +28,7 @@ interface TypographyProps extends TextProps {
   ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip';
   lineHeight?: number;
   children?: React.ReactNode;
+  letterSpacing?: number;
   style?: TextStyle;
 }
 
@@ -56,6 +57,7 @@ const Typography: React.FC<TypographyProps> = ({
   ellipsizeMode = 'tail',
   lineHeight,
   children,
+  letterSpacing,
   style,
   ...props
 }) => {
@@ -85,6 +87,7 @@ const Typography: React.FC<TypographyProps> = ({
       : fonts.regular()),
     ...(upperCase && {textTransform: 'uppercase'}),
     ...(capitalize && {textTransform: 'capitalize'}),
+    ...(letterSpacing && {letterSpacing}),
     textAlign,
     ...(lineHeight && {lineHeight: lineHeight}),
     ...style,
