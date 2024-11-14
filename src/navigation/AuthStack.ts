@@ -3,6 +3,7 @@ import {
   ChangePassword,
   Environment,
   ForgotPassword,
+  SelectRole,
   Signin,
   Signup,
   Splash,
@@ -54,5 +55,10 @@ export const AuthStack: {
     key: 'Welcome',
     component: Welcome,
     name: 'Welcome',
+  },
+  {
+    key: 'SelectRole',
+    component: SelectRole,
+    name: 'SelectRole',
   },
 ];

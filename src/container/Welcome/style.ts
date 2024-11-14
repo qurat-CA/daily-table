@@ -1,36 +1,35 @@
 import {StyleSheet} from 'react-native';
-import {fonts, Metrix} from '../../config';
+
+import {Metrix} from '../../config';
 import {Colors} from '../../config/color';
 
 export default StyleSheet.create({
-  textCont: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: Metrix.HorizontalSize(45),
+  halfCircle: {
+    height: Metrix.VerticalSize(510),
+    overflow: 'hidden',
   },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
+
+  imgContainer: {
+    position: 'absolute',
+    zIndex: 2,
   },
+
+  contentCont: {
+    position: 'absolute',
+    bottom: Metrix.VerticalSize(100),
+    left: Metrix.HorizontalSize(25),
+    right: Metrix.HorizontalSize(25),
+  },
+
   rectangle: {
     position: 'absolute',
-    top: 200,
-    left: -50,
+    top: Metrix.VerticalSize(200),
+    left: Metrix.HorizontalSize(-50),
     width: Metrix.HorizontalSize(510),
     height: Metrix.VerticalSize(86),
     zIndex: 1,
-    backgroundColor: Colors.blue,
-    transform: [{rotate: '23deg'}],
   },
-  description: {
-    fontSize: 16,
-    color: '#fff',
-    textAlign: 'center',
-    marginTop: 10,
-  },
+
   skipBtn: {
     width: Metrix.HorizontalSize(65),
     height: Metrix.VerticalSize(35),
@@ -38,12 +37,14 @@ export default StyleSheet.create({
     marginTop: Metrix.VerticalSize(60),
     marginRight: Metrix.HorizontalSize(23),
   },
+
   activeDotStyle: {
     backgroundColor: Colors.blue,
     width: Metrix.HorizontalSize(33),
     height: Metrix.VerticalSize(8),
     borderRadius: 5,
   },
+
   dotStyle: {
     backgroundColor: '#D9D9D9',
     width: Metrix.HorizontalSize(8),

@@ -10,6 +10,12 @@ export type RootStackParamList = {
   Verification: undefined;
   Signup: undefined;
   Welcome: undefined;
+  SelectRole: undefined;
+};
+
+export type AppStackParamList = {
+  SelectRole: undefined;
+  Home: undefined;
 };
 
 export type NavigationStackType<T extends ParamListBase = RootStackParamList> =

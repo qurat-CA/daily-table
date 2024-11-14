@@ -1,20 +1,19 @@
+import {Easing} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+
 import {RootStackParamList} from '../config/type/navigation';
 import {AuthStack} from './AuthStack';
-import {Easing} from 'react-native';
+import {AppStack} from './AppStack';
 
 const MainStackNavigator = createStackNavigator<RootStackParamList>();
 
 export const MainStack = () => {
-  const AppStacks: {
-    name: keyof RootStackParamList;
-    component: (props: any) => JSX.Element;
-    key: string;
-  }[] = [...AuthStack];
+  const token: boolean = false;
+  const AppStacks = token ? AuthStack : AppStack;
 
   return (
     <MainStackNavigator.Navigator
-      initialRouteName={'Splash'}
+      initialRouteName="Splash"
       screenOptions={{
         headerShown: false,
         cardStyleInterpolator: ({current, layouts}) => {
@@ -53,7 +52,11 @@ export const MainStack = () => {
         },
       }}>
       {AppStacks.map(stack => (
-        <MainStackNavigator.Screen {...stack} />
+        <MainStackNavigator.Screen
+          key={stack.key}
+          name={stack.name as keyof RootStackParamList}
+          component={stack.component}
+        />
       ))}
     </MainStackNavigator.Navigator>
   );
