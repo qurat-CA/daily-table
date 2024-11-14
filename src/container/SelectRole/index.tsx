@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {TouchableOpacity, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 import {StandardButton, Typography, Container} from '../../components';
 import {Colors, Metrix} from '../../config';
@@ -8,7 +7,7 @@ import {roles} from './data';
 import {styles} from './style';
 
 const SelectRole = () => {
-  const [selectedRole, setSelectedRole] = useState<string | null>(null);
+  const [selectedRole, setSelectedRole] = useState<string>(roles[0].role);
 
   const onPressRole = (role: string) => {
     setSelectedRole(role);
@@ -30,14 +29,13 @@ const SelectRole = () => {
           onPress={() => onPressRole(item.role)}
           key={item.role}
           style={styles.roleCont}>
-          <LinearGradient
-            colors={['#8052A0', '#55A0D7', '#85D3EB']}
+          <View
             style={[
-              styles.radioBtnCont,
-              selectedRole === item.role && styles.selectedRole,
+              styles.radioButton,
+              item.role !== selectedRole && {borderColor: '#898989'},
             ]}>
-            {selectedRole === item.role && <View style={styles.radioBtn} />}
-          </LinearGradient>
+            {item.role === selectedRole && <View style={styles.radioFill} />}
+          </View>
           <item.Icon width={40} height={40} />
           <Typography color={Colors.textV2} semiBold size={20}>
             {item.label}

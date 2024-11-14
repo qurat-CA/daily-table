@@ -13,25 +13,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 16,
   },
-  radioBtnCont: {
-    height: Metrix.VerticalSize(20),
+  radioButton: {
     width: Metrix.VerticalSize(20),
+    height: Metrix.VerticalSize(20),
+    borderRadius: Metrix.VerticalSize(100),
+    borderWidth: 1,
+    borderColor: '#4A90E2',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  radioFill: {
+    width: Metrix.VerticalSize(13),
+    height: Metrix.VerticalSize(13),
     borderRadius: Metrix.VerticalSize(100),
-    borderColor: '#4A90E2',
-    backgroundColor: '#fff',
-    padding: 2,
+    backgroundColor: '#4A90E2',
   },
   selectedRole: {
     borderRadius: Metrix.VerticalSize(100),
     padding: 2,
-  },
-  radioBtn: {
-    width: Metrix.HorizontalSize(13),
-    height: Metrix.VerticalSize(13),
-    backgroundColor: 'pink',
-    borderRadius: Metrix.VerticalSize(100),
   },
   continueBtn: {
     position: 'absolute',
