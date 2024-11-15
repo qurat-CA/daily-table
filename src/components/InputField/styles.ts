@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: Metrix.VerticalSize(56),
+    flex: 1,
   },
   inputContainer: {
     flexDirection: 'row',

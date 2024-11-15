@@ -1,9 +1,9 @@
-import React from 'react';
-import {TextInput, View} from 'react-native';
+import React, {useState} from 'react';
+import {TextInput, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {InputFieldProps} from '../../config/type/appDataType';
-import {Colors} from '../../config';
+import {Colors, Metrix, SVGS} from '../../config';
 import styles, {gradientColors} from './styles';
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -12,12 +12,13 @@ const InputField: React.FC<InputFieldProps> = ({
   onFocus,
   onBlur,
   placeholder,
-  secureTextEntry = false,
   focused,
   iconActive,
   iconInactive,
   isPassword = false,
 }) => {
+  const [hidePassword, setHidePassword] = useState(true);
+
   return (
     <LinearGradient
       colors={focused ? gradientColors : [Colors.greyV2, Colors.greyV2]}
@@ -34,8 +35,15 @@ const InputField: React.FC<InputFieldProps> = ({
           style={styles.input}
           placeholder={placeholder}
           placeholderTextColor={focused ? Colors.pinkV2 : Colors.greyV2}
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={isPassword && hidePassword}
         />
+        {isPassword && (
+          <TouchableOpacity
+            activeOpacity={Metrix.ActiveOpacity}
+            onPress={() => setHidePassword(!hidePassword)}>
+            {hidePassword ? <SVGS.EyeClose /> : <SVGS.EyeOpen />}
+          </TouchableOpacity>
+        )}
       </View>
     </LinearGradient>
   );

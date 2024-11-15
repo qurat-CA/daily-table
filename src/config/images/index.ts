@@ -10,6 +10,8 @@ import MailIcon from '../../assets/images/mail-icon.svg';
 import MailIconInactive from '../../assets/images/mail-icon-inactive.svg';
 import PasswordIconInactive from '../../assets/images/password-icon.svg';
 import PasswordIcon from '../../assets/images/password-icon-inactive.svg';
+import EyeClose from '../../assets/images/eye-close.svg';
+import EyeOpen from '../../assets/images/eye-open.svg';
 
 export const SVGS = {
   Logo,
@@ -24,6 +26,8 @@ export const SVGS = {
   PasswordIcon,
   MailIconInactive,
   PasswordIconInactive,
+  EyeClose,
+  EyeOpen,
 };
 
 export const Images = {
