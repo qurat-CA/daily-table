@@ -19,7 +19,7 @@ const StandardButton = ({
   onPress,
   useLinearGradient = false,
   gradientColors = ['#8052A0', '#55A0D7'],
-  textColor = '#000',
+  textColor = '#fff',
   textSize = 16,
 }: Props) => {
   return (
@@ -33,7 +33,7 @@ const StandardButton = ({
           end={{x: 0.7, y: 1}}
           colors={gradientColors}
           style={styles.linearGradient}>
-          <Typography color={textColor} letterSpacing={0.2}>
+          <Typography semiBold color={textColor} letterSpacing={0.2}>
             {title}
           </Typography>
         </LinearGradient>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     // paddingVertical: Metrix.VerticalSize(15),
   },
   linearGradient: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: Metrix.Radius,

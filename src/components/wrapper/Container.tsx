@@ -4,7 +4,12 @@ import {Colors, Images, Metrix, SVGS} from '../../config';
 import {Typography} from '../index';
 import {ContainerProps} from '../../config/type/appDataType';
 
-const Container: React.FC<ContainerProps> = ({children, pH = 24}) => {
+const Container: React.FC<ContainerProps> = ({
+  children,
+  pH = 24,
+  headerTitle,
+  headerSubText,
+}) => {
   return (
     <ImageBackground source={Images.AppBackgroundImage} style={{flex: 1}}>
       <View style={styles.logoCont}>
@@ -14,11 +19,11 @@ const Container: React.FC<ContainerProps> = ({children, pH = 24}) => {
         />
 
         <Typography mT={20} color={Colors.white} size={23} bold>
-          Welcome To Daily Tables 👋
+          {headerTitle}
         </Typography>
 
         <Typography mT={2} color={Colors.white}>
-          Let’s Get You Started.
+          {headerSubText}
         </Typography>
       </View>
       <View

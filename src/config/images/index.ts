@@ -6,6 +6,10 @@ import Welcome2 from '../../assets/images/welcome-2.svg';
 import Welcome3 from '../../assets/images/welcome-3.svg';
 import ParentRole from '../../assets/images/parent-role.svg';
 import ChildRole from '../../assets/images/child-role.svg';
+import MailIcon from '../../assets/images/mail-icon.svg';
+import MailIconInactive from '../../assets/images/mail-icon-inactive.svg';
+import PasswordIconInactive from '../../assets/images/password-icon.svg';
+import PasswordIcon from '../../assets/images/password-icon-inactive.svg';
 
 export const SVGS = {
   Logo,
@@ -16,6 +20,10 @@ export const SVGS = {
   Welcome3,
   ParentRole,
   ChildRole,
+  MailIcon,
+  PasswordIcon,
+  MailIconInactive,
+  PasswordIconInactive,
 };
 
 export const Images = {

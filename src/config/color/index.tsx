@@ -8,6 +8,7 @@ const Colors = {
   textV2: '#4A4A4A',
   pinkV2: '#EC1A73',
   grey: '#F6F6F6',
+  greyV2: '#CACACA',
 };
 
 export {Colors};
