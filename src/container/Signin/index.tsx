@@ -1,20 +1,22 @@
-import {useState} from 'react';
-import {View} from 'react-native';
+import {useRef} from 'react';
+import {Text, View} from 'react-native';
 import {Formik} from 'formik';
 
 import {SigninProps} from '../../config/type/navigation';
 import {
   Container,
+  Flex,
   InputField,
   StandardButton,
   Typography,
 } from '../../components';
-import {SVGS} from '../../config';
+import {Colors, SVGS} from '../../config';
 
 const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
-  const [emailFocused, setEmailFocused] = useState(true);
-  const [passwordFocused, setPasswordFocused] = useState(false);
+
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
 
   const initialValues = {
     email: '',
@@ -25,24 +27,27 @@ const Signin = ({route}: SigninProps) => {
     <Container
       headerTitle={`Welcome ${role.charAt(0).toUpperCase() + role.slice(1)} 👋`}
       headerSubText="Let’s Get You Started Sign In To Continue.">
-      <Typography mT={32} mB={10} semiBold>
-        Email
-      </Typography>
-
       <Formik
         initialValues={initialValues}
         onSubmit={values => console.log(values)}>
         {({handleChange, handleBlur, handleSubmit, values}) => (
           <View>
+            <Typography mT={32} mB={10} semiBold>
+              Email
+            </Typography>
+
             <InputField
               value={values.email}
               onChange={handleChange('email')}
-              onFocus={() => setEmailFocused(true)}
-              onBlur={() => setEmailFocused(false)}
+              onFocus={() => {
+                emailInputRef.current?.focus();
+              }}
+              onBlur={handleBlur('email')}
               placeholder="Enter Email Address"
-              focused={emailFocused}
+              focused={emailInputRef.current?.isFocused()}
               iconActive={<SVGS.MailIcon />}
               iconInactive={<SVGS.MailIconInactive />}
+              inputRef={emailInputRef}
             />
 
             <Typography mT={20} mB={10} semiBold>
@@ -52,17 +57,30 @@ const Signin = ({route}: SigninProps) => {
             <InputField
               value={values.password}
               onChange={handleChange('password')}
-              onFocus={() => setPasswordFocused(true)}
-              onBlur={() => setPasswordFocused(false)}
+              onFocus={() => {
+                passwordInputRef.current?.focus();
+              }}
+              onBlur={handleBlur('password')}
               placeholder="Enter Password"
               secureTextEntry
-              focused={passwordFocused}
+              focused={passwordInputRef.current?.isFocused()}
               iconActive={<SVGS.PasswordIcon />}
               iconInactive={<SVGS.PasswordIconInactive />}
+              inputRef={passwordInputRef}
               isPassword
             />
 
+            <Flex mT={10} justifyContent="space-between">
+              <Typography size={14} color={'#0C1927'}>
+                Remember Password
+              </Typography>
+              <Typography medium color={Colors.pink} size={14}>
+                Forgot Password?
+              </Typography>
+            </Flex>
+
             <StandardButton
+              mT={50}
               useLinearGradient
               onPress={handleSubmit}
               title="Sign in"
@@ -70,6 +88,13 @@ const Signin = ({route}: SigninProps) => {
           </View>
         )}
       </Formik>
+
+      <Typography textAlign="center" size={14} mT={90}>
+        <Text style={{color: Colors.textV2}}>Don’t have an account? </Text>
+        <Text style={{color: Colors.pink, fontWeight: 'bold'}}>
+          Register Now
+        </Text>
+      </Typography>
     </Container>
   );
 };

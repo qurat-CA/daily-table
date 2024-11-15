@@ -1,4 +1,5 @@
 import React from 'react';
+import {TextInput} from 'react-native';
 import {SvgProps} from 'react-native-svg';
 
 export type ScreenDataType = {
@@ -17,6 +18,18 @@ export type ContainerProps = {
   headerSubText: string;
 };
 
+export type FlexProps = {
+  mT?: number;
+  children: React.ReactNode;
+  justifyContent:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
+};
+
 export interface InputFieldProps {
   value: string;
   onChange: (text: string) => void;
@@ -27,5 +40,6 @@ export interface InputFieldProps {
   focused: boolean;
   iconActive: JSX.Element;
   iconInactive: JSX.Element;
+  inputRef: React.RefObject<TextInput>;
   isPassword?: boolean;
 }

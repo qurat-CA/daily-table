@@ -14,6 +14,14 @@ type RenderItemType = {
 };
 
 const IntroSlider = () => {
+  const onDone = () => {
+    NavigationService.navigate('Environment', {});
+  };
+
+  const onSkip = () => {
+    NavigationService.navigate('SelectRole', {});
+  };
+
   const renderTitle = (title: string, index: number) => {
     if (index === 0) {
       return (
@@ -57,7 +65,7 @@ const IntroSlider = () => {
 
           <View style={styles.skipBtn}>
             <StandardButton
-              onPress={() => {}}
+              onPress={onSkip}
               title="Skip"
               bgColor={Colors.pink}
               textSize={15}
@@ -88,10 +96,6 @@ const IntroSlider = () => {
         </View>
       </ImageBackground>
     );
-  };
-
-  const onDone = () => {
-    NavigationService.navigate('Environment', {});
   };
 
   return (

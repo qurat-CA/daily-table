@@ -16,6 +16,7 @@ const InputField: React.FC<InputFieldProps> = ({
   iconActive,
   iconInactive,
   isPassword = false,
+  inputRef,
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
@@ -28,6 +29,7 @@ const InputField: React.FC<InputFieldProps> = ({
       <View style={styles.inputContainer}>
         {focused ? iconActive : iconInactive}
         <TextInput
+          ref={inputRef}
           onChangeText={onChange}
           onBlur={onBlur}
           onFocus={onFocus}
@@ -41,7 +43,17 @@ const InputField: React.FC<InputFieldProps> = ({
           <TouchableOpacity
             activeOpacity={Metrix.ActiveOpacity}
             onPress={() => setHidePassword(!hidePassword)}>
-            {hidePassword ? <SVGS.EyeClose /> : <SVGS.EyeOpen />}
+            {hidePassword ? (
+              focused ? (
+                <SVGS.EyeCloseFocus />
+              ) : (
+                <SVGS.EyeClose />
+              )
+            ) : focused ? (
+              <SVGS.EyeOpenFocus />
+            ) : (
+              <SVGS.EyeOpen />
+            )}
           </TouchableOpacity>
         )}
       </View>

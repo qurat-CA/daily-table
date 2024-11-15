@@ -12,6 +12,8 @@ import PasswordIconInactive from '../../assets/images/password-icon.svg';
 import PasswordIcon from '../../assets/images/password-icon-inactive.svg';
 import EyeClose from '../../assets/images/eye-close.svg';
 import EyeOpen from '../../assets/images/eye-open.svg';
+import EyeOpenFocus from '../../assets/images/eye-open-focus.svg';
+import EyeCloseFocus from '../../assets/images/eye-close-focus.svg';
 
 export const SVGS = {
   Logo,
@@ -28,6 +30,8 @@ export const SVGS = {
   PasswordIconInactive,
   EyeClose,
   EyeOpen,
+  EyeOpenFocus,
+  EyeCloseFocus,
 };
 
 export const Images = {

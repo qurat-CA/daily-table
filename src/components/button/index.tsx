@@ -12,6 +12,7 @@ type Props = {
   gradientColors?: string[];
   textColor?: string;
   textSize?: number;
+  mT?: number;
 };
 
 const StandardButton = ({
@@ -21,12 +22,13 @@ const StandardButton = ({
   gradientColors = ['#8052A0', '#55A0D7'],
   textColor = '#fff',
   textSize = 16,
+  mT = 0,
 }: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={Metrix.ActiveOpacity}
-      style={[styles.container]}>
+      style={[styles.container, {marginTop: Metrix.VerticalSize(mT)}]}>
       {useLinearGradient ? (
         <LinearGradient
           start={{x: 0.3, y: 0}}

@@ -9,7 +9,7 @@ const MainStackNavigator = createStackNavigator<RootStackParamList>();
 
 export const MainStack = () => {
   const token: boolean = false;
-  const AppStacks = token ? AuthStack : AppStack;
+  const AppStacks = token ? AppStack : AuthStack;
 
   return (
     <MainStackNavigator.Navigator
