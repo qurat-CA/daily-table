@@ -1,5 +1,5 @@
 import {AppStackParamList} from '../config/type/navigation';
-import {Home, SelectRole} from '../container';
+import {Home, SelectRole, Signin} from '../container';
 
 export const AppStack: {
   name: keyof AppStackParamList;
@@ -15,5 +15,10 @@ export const AppStack: {
     key: 'Home',
     component: Home,
     name: 'Home',
+  },
+  {
+    key: 'Signin',
+    component: Signin,
+    name: 'Signin',
   },
 ];

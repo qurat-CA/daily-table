@@ -32,7 +32,8 @@ export default StyleSheet.create({
 
   skipBtn: {
     width: Metrix.HorizontalSize(65),
-    height: Metrix.VerticalSize(35),
+    // height: Metrix.VerticalSize(35),
+    borderRadius: Metrix.Radius,
     alignSelf: 'flex-end',
     marginTop: Metrix.VerticalSize(60),
     marginRight: Metrix.HorizontalSize(23),

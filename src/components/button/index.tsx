@@ -11,21 +11,22 @@ type Props = {
   useLinearGradient?: boolean;
   gradientColors?: string[];
   textColor?: string;
+  textSize?: number;
 };
 
 const StandardButton = ({
   title,
   onPress,
-  bgColor = 'lightgreen',
   useLinearGradient = false,
   gradientColors = ['#8052A0', '#55A0D7'],
   textColor = '#000',
+  textSize = 16,
 }: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       activeOpacity={Metrix.ActiveOpacity}
-      style={styles.container}>
+      style={[styles.container]}>
       {useLinearGradient ? (
         <LinearGradient
           start={{x: 0.3, y: 0}}
@@ -37,9 +38,9 @@ const StandardButton = ({
           </Typography>
         </LinearGradient>
       ) : (
-        <Text style={[styles.buttonText, {backgroundColor: bgColor}]}>
+        <Typography textAlign="center" size={textSize}>
           {title}
-        </Text>
+        </Typography>
       )}
     </TouchableOpacity>
   );
@@ -50,7 +51,8 @@ export default StandardButton;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    borderRadius: Metrix.Radius,
+    // borderRadius: Metrix.Radius,
+    // paddingVertical: Metrix.VerticalSize(15),
   },
   linearGradient: {
     flex: 1,
@@ -62,7 +64,6 @@ const styles = StyleSheet.create({
   buttonText: {
     textAlign: 'center',
     fontSize: Metrix.FontMedium,
-    color: '#000',
-    paddingVertical: Metrix.VerticalSize(15),
+    // color: '#000',
   },
 });

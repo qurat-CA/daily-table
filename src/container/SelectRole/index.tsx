@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 
 import {StandardButton, Typography, Container} from '../../components';
-import {Colors, Metrix} from '../../config';
+import {Colors, Metrix, NavigationService} from '../../config';
 import {roles} from './data';
 import {styles} from './style';
 
@@ -11,6 +11,10 @@ const SelectRole = () => {
 
   const onPressRole = (role: string) => {
     setSelectedRole(role);
+  };
+
+  const onPressContinue = () => {
+    NavigationService.navigate('Signin', {role: selectedRole});
   };
 
   return (
@@ -48,7 +52,7 @@ const SelectRole = () => {
           textColor={Colors.white}
           useLinearGradient
           title="Continue"
-          onPress={() => {}}
+          onPress={onPressContinue}
         />
       </View>
     </Container>

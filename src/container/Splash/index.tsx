@@ -1,10 +1,9 @@
 import {useEffect} from 'react';
-import {Image, ImageBackground, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {ImageBackground, View} from 'react-native';
 
-import {SVGS} from '../../config/images';
-import styles from './style';
+import {Images, SVGS} from '../../config/images';
 import {NavigationService} from '../../config';
+import styles from './style';
 
 const Splash = () => {
   useEffect(() => {
@@ -15,7 +14,7 @@ const Splash = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/images/dummy-bg.png')}
+      source={Images.AppBackgroundImage}
       style={styles.container}>
       <SVGS.Logo width={208} height={191} />
       <View style={styles.text}>

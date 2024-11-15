@@ -60,6 +60,7 @@ const IntroSlider = () => {
               onPress={() => {}}
               title="Skip"
               bgColor={Colors.pink}
+              textSize={15}
             />
           </View>
 
