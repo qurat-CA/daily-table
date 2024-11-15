@@ -1,5 +1,5 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, View} from 'react-native';
+import {ImageBackground, ScrollView, StyleSheet, View} from 'react-native';
 import {Colors, Images, Metrix, SVGS} from '../../config';
 import {Typography} from '../index';
 import {ContainerProps} from '../../config/type/appDataType';
@@ -26,13 +26,14 @@ const Container: React.FC<ContainerProps> = ({
           {headerSubText}
         </Typography>
       </View>
-      <View
+      <ScrollView
+        showsVerticalScrollIndicator={false}
         style={[
           styles.contentCont,
           {paddingHorizontal: Metrix.HorizontalSize(pH)},
         ]}>
         {children}
-      </View>
+      </ScrollView>
     </ImageBackground>
   );
 };
