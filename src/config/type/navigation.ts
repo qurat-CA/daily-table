@@ -11,6 +11,7 @@ export type RootStackParamList = {
   Signup: undefined;
   Welcome: undefined;
   SelectRole: undefined;
+  SignupAsChild: undefined;
 };
 
 export type AppStackParamList = {

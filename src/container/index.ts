@@ -8,6 +8,7 @@ import Verification from './Verification';
 import Welcome from './Welcome';
 import SelectRole from './SelectRole';
 import Home from './Home';
+import SignupAsChild from './SignupAsChild';
 
 export {
   Splash,
@@ -20,4 +21,5 @@ export {
   Welcome,
   SelectRole,
   Home,
+  SignupAsChild,
 };

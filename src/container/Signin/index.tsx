@@ -33,6 +33,14 @@ const Signin = ({route}: SigninProps) => {
     setFocusedField(field);
   };
 
+  const onPressRegister = () => {
+    if (role === 'parent') {
+      NavigationService.navigate('Signup', {role});
+    } else {
+      NavigationService.navigate('SignupAsChild', {role});
+    }
+  };
+
   useEffect(() => {
     setFocusedField('email');
   }, []);
@@ -109,9 +117,7 @@ const Signin = ({route}: SigninProps) => {
       <Typography textAlign="center" size={14} mT={90} mB={32}>
         <Text style={{color: Colors.textV2}}>Don’t have an account? </Text>
         <Text
-          onPress={() => {
-            NavigationService.navigate('Signup', {role});
-          }}
+          onPress={onPressRegister}
           style={{color: Colors.pink, fontWeight: 'bold'}}>
           Register Now
         </Text>

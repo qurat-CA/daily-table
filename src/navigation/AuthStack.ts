@@ -6,6 +6,7 @@ import {
   SelectRole,
   Signin,
   Signup,
+  SignupAsChild,
   Splash,
   Verification,
   Welcome,
@@ -60,5 +61,10 @@ export const AuthStack: {
     key: 'SelectRole',
     component: SelectRole,
     name: 'SelectRole',
+  },
+  {
+    key: 'SignupAsChild',
+    component: SignupAsChild,
+    name: 'SignupAsChild',
   },
 ];
