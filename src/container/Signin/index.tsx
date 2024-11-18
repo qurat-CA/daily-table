@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {Formik} from 'formik';
 import {object, string} from 'yup';
 
@@ -11,14 +11,12 @@ import {
   StandardButton,
   Typography,
 } from '../../components';
-import {Colors, NavigationService, SVGS} from '../../config';
+import {Colors, Metrix, NavigationService, SVGS} from '../../config';
 
 const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
 
-  const [emailFocused, setEmailFocused] = useState(false);
-  const [passwordFocused, setPasswordFocused] = useState(false);
-
+  const [focusedField, setFocusedField] = useState<string | null>(null);
   const initialValues = {
     email: '',
     password: '',
@@ -31,19 +29,13 @@ const Signin = ({route}: SigninProps) => {
       .required('Password is required'),
   });
 
+  const handleFocus = (field: string) => {
+    setFocusedField(field);
+  };
+
   useEffect(() => {
-    setEmailFocused(true);
+    setFocusedField('email');
   }, []);
-
-  const handleEmailFocus = () => {
-    setEmailFocused(true);
-    setPasswordFocused(false);
-  };
-
-  const handlePasswordFocus = () => {
-    setPasswordFocused(true);
-    setEmailFocused(false);
-  };
 
   return (
     <Container
@@ -54,8 +46,6 @@ const Signin = ({route}: SigninProps) => {
         validationSchema={validationSchema}
         onSubmit={values => console.log(values)}>
         {({handleChange, handleBlur, handleSubmit, values, errors}) => {
-          console.log(errors);
-
           return (
             <View>
               <Typography mT={32} mB={10} semiBold>
@@ -65,10 +55,9 @@ const Signin = ({route}: SigninProps) => {
               <InputField
                 value={values.email}
                 onChange={handleChange('email')}
-                onFocus={handleEmailFocus}
-                // onBlur={() => setEmailFocused(false)}
+                onFocus={() => handleFocus('email')}
+                focused={focusedField === 'email'}
                 placeholder="Enter Email Address"
-                focused={emailFocused}
                 iconActive={<SVGS.MailIcon />}
                 iconInactive={<SVGS.MailIconInactive />}
                 autoFocus
@@ -82,11 +71,10 @@ const Signin = ({route}: SigninProps) => {
               <InputField
                 value={values.password}
                 onChange={handleChange('password')}
-                onFocus={handlePasswordFocus}
-                // onBlur={() => setPasswordFocused(false)}
+                onFocus={() => handleFocus('password')}
+                focused={focusedField === 'password'}
                 placeholder="Enter Password"
                 secureTextEntry
-                focused={passwordFocused}
                 iconActive={<SVGS.PasswordIcon />}
                 iconInactive={<SVGS.PasswordIconInactive />}
                 error={errors.password}
@@ -96,9 +84,15 @@ const Signin = ({route}: SigninProps) => {
                 <Typography size={14} color={'#0C1927'}>
                   Remember Password
                 </Typography>
-                <Typography medium color={Colors.pink} size={14}>
-                  Forgot Password?
-                </Typography>
+                <TouchableOpacity
+                  activeOpacity={Metrix.ActiveOpacity}
+                  onPress={() => {
+                    NavigationService.navigate('ForgotPassword', {});
+                  }}>
+                  <Typography medium color={Colors.pink} size={14}>
+                    Forgot Password?
+                  </Typography>
+                </TouchableOpacity>
               </Flex>
 
               <StandardButton

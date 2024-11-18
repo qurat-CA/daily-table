@@ -19,6 +19,7 @@ import UserInactive from '../../assets/images/user-inactive.svg';
 import ProfieSvg from '../../assets/images/profile.svg';
 import CameraIcon from '../../assets/images/camera-icon.svg';
 import PlusIcon from '../../assets/images/plus-icon.svg';
+import BackIcon from '../../assets/images/back-icon.svg';
 
 export const SVGS = {
   Logo,
@@ -42,6 +43,7 @@ export const SVGS = {
   ProfieSvg,
   CameraIcon,
   PlusIcon,
+  BackIcon,
 };
 
 export const Images = {
