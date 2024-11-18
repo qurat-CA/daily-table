@@ -43,7 +43,7 @@ const StandardButton = ({
       ]}>
       {useLinearGradient ? (
         <LinearGradient
-          start={{x: 0.3, y: 0}}
+          start={{x: 0.4, y: 0}}
           end={{x: 0.7, y: 1}}
           colors={gradientColors}
           style={styles.linearGradient}>

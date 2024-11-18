@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput} from 'react-native';
+import {TextInput, TextStyle, ViewStyle} from 'react-native';
 import {SvgProps} from 'react-native-svg';
 
 export type ScreenDataType = {
@@ -28,6 +28,7 @@ export type FlexProps = {
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
+  gap?: number;
 };
 
 export interface InputFieldProps {
@@ -44,4 +45,5 @@ export interface InputFieldProps {
   isPassword?: boolean;
   autoFocus?: boolean;
   error?: string;
+  inputStyle?: ViewStyle | TextStyle;
 }

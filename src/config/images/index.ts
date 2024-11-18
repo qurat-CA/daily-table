@@ -14,6 +14,11 @@ import EyeClose from '../../assets/images/eye-close.svg';
 import EyeOpen from '../../assets/images/eye-open.svg';
 import EyeOpenFocus from '../../assets/images/eye-open-focus.svg';
 import EyeCloseFocus from '../../assets/images/eye-close-focus.svg';
+import UserActive from '../../assets/images/user-active.svg';
+import UserInactive from '../../assets/images/user-inactive.svg';
+import ProfieSvg from '../../assets/images/profile.svg';
+import CameraIcon from '../../assets/images/camera-icon.svg';
+import PlusIcon from '../../assets/images/plus-icon.svg';
 
 export const SVGS = {
   Logo,
@@ -32,6 +37,11 @@ export const SVGS = {
   EyeOpen,
   EyeOpenFocus,
   EyeCloseFocus,
+  UserActive,
+  UserInactive,
+  ProfieSvg,
+  CameraIcon,
+  PlusIcon,
 };
 
 export const Images = {

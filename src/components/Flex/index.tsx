@@ -5,9 +5,10 @@ const Flex: React.FC<FlexProps> = ({
   children,
   justifyContent = 'flex-start',
   mT = 0,
+  gap = 0,
 }) => {
   return (
-    <View style={[styles.container, {justifyContent, marginTop: mT}]}>
+    <View style={[styles.container, {justifyContent, marginTop: mT, gap: gap}]}>
       {children}
     </View>
   );

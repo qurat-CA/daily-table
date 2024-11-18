@@ -10,6 +10,7 @@ const Colors = {
   pinkV2: '#EC1A73',
   grey: '#F6F6F6',
   greyV2: '#CACACA',
+  greyV3: '#B2B2B2',
   danger: '#FF0944',
 };
 

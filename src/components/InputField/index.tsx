@@ -19,6 +19,7 @@ const InputField: React.FC<InputFieldProps> = ({
   isPassword = false,
   inputRef,
   error,
+  inputStyle,
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
@@ -37,7 +38,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onBlur={onBlur}
             onFocus={onFocus}
             value={value}
-            style={styles.input}
+            style={[styles.input, {fontSize: Metrix.FontSmall}, inputStyle]}
             placeholder={placeholder}
             placeholderTextColor={focused ? Colors.pinkV2 : Colors.greyV2}
             secureTextEntry={isPassword && hidePassword}

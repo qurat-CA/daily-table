@@ -4,7 +4,7 @@ import {Colors, fonts, Metrix} from '../../config';
 const styles = StyleSheet.create({
   gradientWrapper: {
     borderRadius: Metrix.Radius,
-    padding: Metrix.VerticalSize(2),
+    padding: Metrix.VerticalSize(1),
   },
   input: {
     height: Metrix.VerticalSize(56),

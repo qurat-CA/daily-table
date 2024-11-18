@@ -11,7 +11,7 @@ import {
   StandardButton,
   Typography,
 } from '../../components';
-import {Colors, SVGS} from '../../config';
+import {Colors, NavigationService, SVGS} from '../../config';
 
 const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
@@ -114,7 +114,11 @@ const Signin = ({route}: SigninProps) => {
 
       <Typography textAlign="center" size={14} mT={90} mB={32}>
         <Text style={{color: Colors.textV2}}>Don’t have an account? </Text>
-        <Text style={{color: Colors.pink, fontWeight: 'bold'}}>
+        <Text
+          onPress={() => {
+            NavigationService.navigate('Signup', {role});
+          }}
+          style={{color: Colors.pink, fontWeight: 'bold'}}>
           Register Now
         </Text>
       </Typography>
