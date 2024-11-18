@@ -1,6 +1,7 @@
-import {useRef} from 'react';
+import {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import {Formik} from 'formik';
+import {object, string} from 'yup';
 
 import {SigninProps} from '../../config/type/navigation';
 import {
@@ -15,12 +16,33 @@ import {Colors, SVGS} from '../../config';
 const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
 
-  const emailInputRef = useRef(null);
-  const passwordInputRef = useRef(null);
+  const [emailFocused, setEmailFocused] = useState(false);
+  const [passwordFocused, setPasswordFocused] = useState(false);
 
   const initialValues = {
     email: '',
     password: '',
+  };
+
+  const validationSchema = object({
+    email: string().email('Enter a valid email').required('Email is required'),
+    password: string()
+      .min(6, 'Password must contain min 8 characters')
+      .required('Password is required'),
+  });
+
+  useEffect(() => {
+    setEmailFocused(true);
+  }, []);
+
+  const handleEmailFocus = () => {
+    setEmailFocused(true);
+    setPasswordFocused(false);
+  };
+
+  const handlePasswordFocus = () => {
+    setPasswordFocused(true);
+    setEmailFocused(false);
   };
 
   return (
@@ -29,67 +51,68 @@ const Signin = ({route}: SigninProps) => {
       headerSubText="Let’s Get You Started Sign In To Continue.">
       <Formik
         initialValues={initialValues}
+        validationSchema={validationSchema}
         onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
-          <View>
-            <Typography mT={32} mB={10} semiBold>
-              Email
-            </Typography>
+        {({handleChange, handleBlur, handleSubmit, values, errors}) => {
+          console.log(errors);
 
-            <InputField
-              value={values.email}
-              onChange={handleChange('email')}
-              onFocus={() => {
-                emailInputRef.current?.focus();
-              }}
-              onBlur={handleBlur('email')}
-              placeholder="Enter Email Address"
-              focused={emailInputRef.current?.isFocused()}
-              iconActive={<SVGS.MailIcon />}
-              iconInactive={<SVGS.MailIconInactive />}
-              inputRef={emailInputRef}
-            />
-
-            <Typography mT={20} mB={10} semiBold>
-              Password
-            </Typography>
-
-            <InputField
-              value={values.password}
-              onChange={handleChange('password')}
-              onFocus={() => {
-                passwordInputRef.current?.focus();
-              }}
-              onBlur={handleBlur('password')}
-              placeholder="Enter Password"
-              secureTextEntry
-              focused={passwordInputRef.current?.isFocused()}
-              iconActive={<SVGS.PasswordIcon />}
-              iconInactive={<SVGS.PasswordIconInactive />}
-              inputRef={passwordInputRef}
-              isPassword
-            />
-
-            <Flex mT={10} justifyContent="space-between">
-              <Typography size={14} color={'#0C1927'}>
-                Remember Password
+          return (
+            <View>
+              <Typography mT={32} mB={10} semiBold>
+                Email
               </Typography>
-              <Typography medium color={Colors.pink} size={14}>
-                Forgot Password?
-              </Typography>
-            </Flex>
 
-            <StandardButton
-              mT={50}
-              useLinearGradient
-              onPress={handleSubmit}
-              title="Sign in"
-            />
-          </View>
-        )}
+              <InputField
+                value={values.email}
+                onChange={handleChange('email')}
+                onFocus={handleEmailFocus}
+                // onBlur={() => setEmailFocused(false)}
+                placeholder="Enter Email Address"
+                focused={emailFocused}
+                iconActive={<SVGS.MailIcon />}
+                iconInactive={<SVGS.MailIconInactive />}
+                autoFocus
+                error={errors.email}
+              />
+
+              <Typography mT={20} mB={10} semiBold>
+                Password
+              </Typography>
+
+              <InputField
+                value={values.password}
+                onChange={handleChange('password')}
+                onFocus={handlePasswordFocus}
+                // onBlur={() => setPasswordFocused(false)}
+                placeholder="Enter Password"
+                secureTextEntry
+                focused={passwordFocused}
+                iconActive={<SVGS.PasswordIcon />}
+                iconInactive={<SVGS.PasswordIconInactive />}
+                error={errors.password}
+              />
+
+              <Flex mT={10} justifyContent="space-between">
+                <Typography size={14} color={'#0C1927'}>
+                  Remember Password
+                </Typography>
+                <Typography medium color={Colors.pink} size={14}>
+                  Forgot Password?
+                </Typography>
+              </Flex>
+
+              <StandardButton
+                mT={50}
+                useLinearGradient
+                onPress={handleSubmit}
+                title="Sign in"
+              />
+            </View>
+          );
+        }}
       </Formik>
 
-      <Typography textAlign="center" size={14} mT={90}>
+      <Typography textAlign="center" size={14} mT={90} mB={32}>
         <Text style={{color: Colors.textV2}}>Don’t have an account? </Text>
         <Text style={{color: Colors.pink, fontWeight: 'bold'}}>
           Register Now

@@ -34,12 +34,14 @@ export interface InputFieldProps {
   value: string;
   onChange: (text: string) => void;
   onFocus: () => void;
-  onBlur: () => void;
+  onBlur?: () => void;
   placeholder: string;
   secureTextEntry?: boolean;
   focused: boolean;
   iconActive: JSX.Element;
   iconInactive: JSX.Element;
-  inputRef: React.RefObject<TextInput>;
+  inputRef?: React.RefObject<TextInput>;
   isPassword?: boolean;
+  autoFocus?: boolean;
+  error?: string;
 }

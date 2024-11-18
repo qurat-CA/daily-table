@@ -18,7 +18,9 @@ const SelectRole = () => {
   };
 
   return (
-    <Container>
+    <Container
+      headerTitle="Welcome To Daily Tables 👋"
+      headerSubText="Let’s Get You Started.">
       <Typography mT={36} bold size={20}>
         Select Role
       </Typography>
@@ -47,14 +49,13 @@ const SelectRole = () => {
         </TouchableOpacity>
       ))}
 
-      <View style={styles.continueBtn}>
-        <StandardButton
-          textColor={Colors.white}
-          useLinearGradient
-          title="Continue"
-          onPress={onPressContinue}
-        />
-      </View>
+      <StandardButton
+        textColor={Colors.white}
+        useLinearGradient
+        title="Continue"
+        onPress={onPressContinue}
+        style={{marginTop: Metrix.VerticalSize(40)}}
+      />
     </Container>
   );
 };

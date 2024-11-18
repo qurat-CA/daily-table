@@ -32,12 +32,6 @@ const styles = StyleSheet.create({
     borderRadius: Metrix.VerticalSize(100),
     padding: 2,
   },
-  continueBtn: {
-    position: 'absolute',
-    bottom: Metrix.VerticalSize(47),
-    width: '100%',
-    right: Metrix.HorizontalSize(24),
-  },
 });
 
 export {styles};

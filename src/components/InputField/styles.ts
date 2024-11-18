@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Metrix} from '../../config';
+import {Colors, fonts, Metrix} from '../../config';
 
 const styles = StyleSheet.create({
   gradientWrapper: {
@@ -9,6 +9,8 @@ const styles = StyleSheet.create({
   input: {
     height: Metrix.VerticalSize(56),
     flex: 1,
+    color: Colors.purpleV2,
+    ...fonts.medium(),
   },
   inputContainer: {
     flexDirection: 'row',
