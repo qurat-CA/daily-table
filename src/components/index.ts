@@ -4,6 +4,8 @@ import Typography from './Typography';
 import Container from './wrapper/Container';
 import InputField from './InputField';
 import Flex from './Flex';
+import ProfileUpdate from './ProfileUpdate';
+import BottomSheetComponent from './BottomSheet';
 
 export {
   Typography,
@@ -12,4 +14,6 @@ export {
   Container,
   InputField,
   Flex,
+  ProfileUpdate,
+  BottomSheetComponent,
 };

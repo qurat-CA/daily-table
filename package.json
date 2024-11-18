@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@gorhom/bottom-sheet": "^5.0.5",
+    "@gorhom/bottom-sheet": "^5.0.6",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-navigation/bottom-tabs": "^6.6.1",
@@ -28,6 +28,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-permissions": "^5.0.2",
+    "react-native-raw-bottom-sheet": "^3.0.0",
     "react-native-reanimated": "^3.16.1",
     "react-native-safe-area-context": "^4.14.0",
     "react-native-screens": "^3.35.0",
