@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: Metrix.Radius,
-    paddingVertical: Metrix.VerticalSize(15),
+    paddingVertical: Metrix.VerticalSize(18),
   },
 });

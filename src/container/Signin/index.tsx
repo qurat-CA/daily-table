@@ -49,6 +49,7 @@ const Signin = ({route}: SigninProps) => {
 
   return (
     <Container
+      contentContainerStyle={{flex: 1}}
       headerTitle={`Welcome ${role.charAt(0).toUpperCase() + role.slice(1)} 👋`}
       headerSubText="Let’s Get You Started Sign In To Continue.">
       <Formik

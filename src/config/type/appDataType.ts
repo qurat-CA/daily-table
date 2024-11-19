@@ -18,6 +18,7 @@ export type ContainerProps = {
   headerTitle: string;
   headerSubText: string;
   backIcon?: boolean;
+  contentContainerStyle?: Object;
 };
 
 export type FlexProps = {

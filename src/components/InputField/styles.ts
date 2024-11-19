@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: Metrix.Radius,
     paddingHorizontal: Metrix.HorizontalSize(16),
-    gap: 11,
+    gap: 10,
   },
   mailIcon: {},
 });

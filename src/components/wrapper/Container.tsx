@@ -16,6 +16,7 @@ const Container: React.FC<ContainerProps> = ({
   headerTitle,
   headerSubText,
   backIcon = false,
+  contentContainerStyle,
 }) => {
   const handleBackPress = useCallback(() => {
     NavigationService.goBack();
@@ -57,7 +58,8 @@ const Container: React.FC<ContainerProps> = ({
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={[
+        contentContainerStyle={contentContainerStyle}
+        style={[
           styles.contentContainer,
           {paddingHorizontal: Metrix.HorizontalSize(pH)},
         ]}>
