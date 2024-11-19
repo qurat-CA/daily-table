@@ -4,9 +4,13 @@ import {Metrix} from '../../config';
 import {Colors} from '../../config/color';
 
 export default StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   halfCircle: {
     height: Metrix.VerticalSize(510),
     overflow: 'hidden',
+    zIndex: 100,
   },
 
   imgContainer: {
@@ -15,10 +19,10 @@ export default StyleSheet.create({
   },
 
   contentCont: {
-    position: 'absolute',
-    bottom: Metrix.VerticalSize(100),
-    left: Metrix.HorizontalSize(25),
-    right: Metrix.HorizontalSize(25),
+    width: Metrix.HorizontalSize(355),
+    flex: 1,
+    alignSelf: 'center',
+    marginTop: Metrix.VerticalSize(67),
   },
 
   rectangle: {

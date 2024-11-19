@@ -9,6 +9,7 @@ export type ScreenDataType = {
   bgColor: string;
   rotation: string;
   imgStyle: object;
+  imgSize?: object;
 };
 
 export type ContainerProps = {

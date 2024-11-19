@@ -22,8 +22,12 @@ export const SCREEN_DATA: ScreenDataType[] = [
     bgColor: Colors.blue,
     rotation: '23deg',
     imgStyle: {
-      top: Metrix.VerticalSize(125),
-      right: Metrix.HorizontalSize(35),
+      top: Metrix.VerticalSize(145),
+      right: Metrix.HorizontalSize(40),
+    },
+    imgSize: {
+      width: 772,
+      height: 628,
     },
   },
   {

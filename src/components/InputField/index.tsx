@@ -27,8 +27,8 @@ const InputField: React.FC<InputFieldProps> = ({
     <>
       <LinearGradient
         colors={focused ? gradientColors : [Colors.greyV2, Colors.greyV2]}
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
+        start={{x: 0.5, y: 1}}
+        end={{x: 0.5, y: 0}}
         style={styles.gradientWrapper}>
         <View style={styles.inputContainer}>
           {focused ? iconActive : iconInactive}

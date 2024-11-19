@@ -83,7 +83,7 @@ const Signin = ({route}: SigninProps) => {
                 onFocus={() => handleFocus('password')}
                 focused={focusedField === 'password'}
                 placeholder="Enter Password"
-                secureTextEntry
+                isPassword
                 iconActive={<SVGS.PasswordIcon />}
                 iconInactive={<SVGS.PasswordIconInactive />}
                 error={errors.password}
@@ -92,10 +92,11 @@ const Signin = ({route}: SigninProps) => {
               <Flex mT={10} justifyContent="space-between">
                 <Flex gap={7}>
                   <Checkbox />
-                  <Typography size={14} color={'#0C1927'}>
+                  <Typography size={14} letterSpacing={0.2} color={'#0C1927'}>
                     Remember Password
                   </Typography>
                 </Flex>
+
                 <TouchableOpacity
                   activeOpacity={Metrix.ActiveOpacity}
                   onPress={() => {

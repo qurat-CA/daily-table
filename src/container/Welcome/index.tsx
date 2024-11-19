@@ -51,7 +51,9 @@ const IntroSlider = () => {
 
   const renderItem = ({item, index}: RenderItemType) => {
     return (
-      <ImageBackground source={Images.AppBackgroundImage} style={{flex: 1}}>
+      <ImageBackground
+        source={Images.AppBackgroundImage}
+        style={styles.container}>
         <ImageBackground source={Images.HalfCircle} style={styles.halfCircle}>
           <View
             style={[
@@ -88,9 +90,8 @@ const IntroSlider = () => {
           <Typography
             color={Colors.white}
             mT={20}
-            size={12}
             textAlign="center"
-            lineHeight={18}>
+            lineHeight={26}>
             {item.description}
           </Typography>
         </View>
