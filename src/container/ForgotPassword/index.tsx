@@ -8,6 +8,7 @@ import {
 import {Formik} from 'formik';
 import {object, string} from 'yup';
 import {SVGS} from '../../config';
+import styles from './style';
 
 const ForgotPassword = () => {
   const initialValues = {
@@ -29,29 +30,32 @@ const ForgotPassword = () => {
         onSubmit={values => console.log(values)}>
         {({handleChange, handleSubmit, values, errors}) => {
           return (
-            <View>
-              <Typography mT={32} mB={10} semiBold>
-                Email
-              </Typography>
+            <View style={styles.contentView}>
+              <View>
+                <Typography mT={32} mB={10} semiBold>
+                  Email
+                </Typography>
 
-              <InputField
-                value={values.email}
-                onChange={handleChange('email')}
-                onFocus={() => {}}
-                focused={true}
-                placeholder="Enter Email Address"
-                iconActive={<SVGS.MailIcon />}
-                iconInactive={<SVGS.MailIconInactive />}
-                autoFocus
-                error={errors.email}
-              />
+                <InputField
+                  value={values.email}
+                  onChange={handleChange('email')}
+                  onFocus={() => {}}
+                  focused={true}
+                  placeholder="Enter Email Address"
+                  iconActive={<SVGS.MailIcon />}
+                  iconInactive={<SVGS.MailIconInactive />}
+                  autoFocus
+                  error={errors.email}
+                />
+              </View>
 
-              <StandardButton
-                mT={300}
-                useLinearGradient
-                onPress={handleSubmit}
-                title="Proceed"
-              />
+              <View style={styles.btnCont}>
+                <StandardButton
+                  useLinearGradient
+                  onPress={handleSubmit}
+                  title="Proceed"
+                />
+              </View>
             </View>
           );
         }}

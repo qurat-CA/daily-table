@@ -54,7 +54,7 @@ const SelectRole = () => {
         useLinearGradient
         title="Continue"
         onPress={onPressContinue}
-        style={{marginTop: Metrix.VerticalSize(40)}}
+        mT={110}
       />
     </Container>
   );

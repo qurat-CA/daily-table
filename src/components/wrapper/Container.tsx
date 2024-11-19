@@ -57,7 +57,7 @@ const Container: React.FC<ContainerProps> = ({
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={[
+        contentContainerStyle={[
           styles.contentContainer,
           {paddingHorizontal: Metrix.HorizontalSize(pH)},
         ]}>
