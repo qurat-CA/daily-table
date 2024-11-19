@@ -17,9 +17,7 @@ const Splash = () => {
       source={Images.AppBackgroundImage}
       style={styles.container}>
       <SVGS.Logo width={208} height={191} />
-      <View style={styles.text}>
-        <SVGS.AppNameText />
-      </View>
+      <SVGS.AppNameText />
     </ImageBackground>
   );
 };

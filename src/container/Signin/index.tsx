@@ -5,6 +5,7 @@ import {object, string} from 'yup';
 
 import {SigninProps} from '../../config/type/navigation';
 import {
+  Checkbox,
   Container,
   Flex,
   InputField,
@@ -17,7 +18,7 @@ const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
-  const initialValues = {
+  const initialValues: {email: string; password: string} = {
     email: '',
     password: '',
   };
@@ -53,7 +54,7 @@ const Signin = ({route}: SigninProps) => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values, errors}) => {
+        {({handleChange, handleSubmit, values, errors}) => {
           return (
             <View>
               <Typography mT={32} mB={10} semiBold>
@@ -89,9 +90,12 @@ const Signin = ({route}: SigninProps) => {
               />
 
               <Flex mT={10} justifyContent="space-between">
-                <Typography size={14} color={'#0C1927'}>
-                  Remember Password
-                </Typography>
+                <Flex gap={7}>
+                  <Checkbox />
+                  <Typography size={14} color={'#0C1927'}>
+                    Remember Password
+                  </Typography>
+                </Flex>
                 <TouchableOpacity
                   activeOpacity={Metrix.ActiveOpacity}
                   onPress={() => {

@@ -22,7 +22,7 @@ export type ContainerProps = {
 export type FlexProps = {
   mT?: number;
   children: React.ReactNode;
-  justifyContent:
+  justifyContent?:
     | 'flex-start'
     | 'flex-end'
     | 'center'

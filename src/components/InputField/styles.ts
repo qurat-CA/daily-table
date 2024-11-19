@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   input: {
     height: Metrix.VerticalSize(56),
     flex: 1,
-    color: Colors.purpleV2,
+    // color: Colors.purpleV2,
     ...fonts.medium(),
   },
   inputContainer: {

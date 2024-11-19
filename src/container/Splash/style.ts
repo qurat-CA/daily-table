@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     transform: [{rotate: '-10deg'}],
   },
   text: {
-    // fontSize: Metrix.FontMedium,
     marginTop: Metrix.VerticalSize(19),
   },
 });

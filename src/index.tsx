@@ -1,7 +1,8 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import { NavigationService } from './config';
-import {MainStack} from './navigation'
+
+import {NavigationService} from './config';
+import {MainStack} from './navigation';
 
 export const Navigation = () => {
   return (

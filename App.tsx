@@ -1,8 +1,9 @@
 import {StatusBar, View} from 'react-native';
 import {useNetInfo} from '@react-native-community/netinfo';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 import Navigation from './src';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const App = () => {
   const {isConnected} = useNetInfo();
@@ -16,7 +17,9 @@ const App = () => {
       />
       {!isConnected && <View style={{backgroundColor: 'red', height: 20}} />}
       <GestureHandlerRootView style={{flex: 1}}>
-        <Navigation />
+        <BottomSheetModalProvider>
+          <Navigation />
+        </BottomSheetModalProvider>
       </GestureHandlerRootView>
     </>
   );

@@ -6,6 +6,7 @@ import InputField from './InputField';
 import Flex from './Flex';
 import ProfileUpdate from './ProfileUpdate';
 import BottomSheetComponent from './BottomSheet';
+import Checkbox from './Checkbox';
 
 export {
   Typography,
@@ -16,4 +17,5 @@ export {
   Flex,
   ProfileUpdate,
   BottomSheetComponent,
+  Checkbox,
 };
