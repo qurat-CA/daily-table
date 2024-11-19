@@ -13,6 +13,7 @@ import {
   Typography,
 } from '../../components';
 import {Colors, Metrix, NavigationService, SVGS} from '../../config';
+import styles from './style';
 
 const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
@@ -56,77 +57,84 @@ const Signin = ({route}: SigninProps) => {
         onSubmit={values => console.log(values)}>
         {({handleChange, handleSubmit, values, errors}) => {
           return (
-            <View>
-              <Typography mT={32} mB={10} semiBold>
-                Email
-              </Typography>
+            <View style={styles.contentView}>
+              <View>
+                <Typography mT={32} mB={10} semiBold>
+                  Email
+                </Typography>
 
-              <InputField
-                value={values.email}
-                onChange={handleChange('email')}
-                onFocus={() => handleFocus('email')}
-                focused={focusedField === 'email'}
-                placeholder="Enter Email Address"
-                iconActive={<SVGS.MailIcon />}
-                iconInactive={<SVGS.MailIconInactive />}
-                autoFocus
-                error={errors.email}
-              />
+                <InputField
+                  value={values.email}
+                  onChange={handleChange('email')}
+                  onFocus={() => handleFocus('email')}
+                  focused={focusedField === 'email'}
+                  placeholder="Enter Email Address"
+                  iconActive={<SVGS.MailIcon />}
+                  iconInactive={<SVGS.MailIconInactive />}
+                  autoFocus
+                  error={errors.email}
+                />
 
-              <Typography mT={20} mB={10} semiBold>
-                Password
-              </Typography>
+                <Typography mT={20} mB={10} semiBold>
+                  Password
+                </Typography>
 
-              <InputField
-                value={values.password}
-                onChange={handleChange('password')}
-                onFocus={() => handleFocus('password')}
-                focused={focusedField === 'password'}
-                placeholder="Enter Password"
-                isPassword
-                iconActive={<SVGS.PasswordIcon />}
-                iconInactive={<SVGS.PasswordIconInactive />}
-                error={errors.password}
-              />
+                <InputField
+                  value={values.password}
+                  onChange={handleChange('password')}
+                  onFocus={() => handleFocus('password')}
+                  focused={focusedField === 'password'}
+                  placeholder="Enter Password"
+                  isPassword
+                  iconActive={<SVGS.PasswordIcon />}
+                  iconInactive={<SVGS.PasswordIconInactive />}
+                  error={errors.password}
+                />
 
-              <Flex mT={10} justifyContent="space-between">
-                <Flex gap={7}>
-                  <Checkbox />
-                  <Typography size={14} letterSpacing={0.2} color={'#0C1927'}>
-                    Remember Password
-                  </Typography>
+                <Flex mT={10} justifyContent="space-between">
+                  <Flex gap={7}>
+                    <Checkbox />
+                    <Typography
+                      size={14}
+                      letterSpacing={0.2}
+                      color={Colors.darkblue}>
+                      Remember Password
+                    </Typography>
+                  </Flex>
+
+                  <TouchableOpacity
+                    activeOpacity={Metrix.ActiveOpacity}
+                    onPress={() => {
+                      NavigationService.navigate('ForgotPassword', {});
+                    }}>
+                    <Typography medium color={Colors.pink} size={14}>
+                      Forgot Password?
+                    </Typography>
+                  </TouchableOpacity>
                 </Flex>
 
-                <TouchableOpacity
-                  activeOpacity={Metrix.ActiveOpacity}
-                  onPress={() => {
-                    NavigationService.navigate('ForgotPassword', {});
-                  }}>
-                  <Typography medium color={Colors.pink} size={14}>
-                    Forgot Password?
-                  </Typography>
-                </TouchableOpacity>
-              </Flex>
+                <StandardButton
+                  mT={50}
+                  useLinearGradient
+                  onPress={handleSubmit}
+                  title="Sign in"
+                />
+              </View>
 
-              <StandardButton
-                mT={50}
-                useLinearGradient
-                onPress={handleSubmit}
-                title="Sign in"
-              />
+              <Typography textAlign="center" size={14} mB={32}>
+                <Text style={{color: Colors.textV2}}>
+                  Don’t have an account?{' '}
+                </Text>
+                <Text
+                  onPress={onPressRegister}
+                  style={{color: Colors.pink, fontWeight: 'bold'}}>
+                  Register Now
+                </Text>
+              </Typography>
             </View>
           );
         }}
       </Formik>
-
-      <Typography textAlign="center" size={14} mT={90} mB={32}>
-        <Text style={{color: Colors.textV2}}>Don’t have an account? </Text>
-        <Text
-          onPress={onPressRegister}
-          style={{color: Colors.pink, fontWeight: 'bold'}}>
-          Register Now
-        </Text>
-      </Typography>
     </Container>
   );
 };

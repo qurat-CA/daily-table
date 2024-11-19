@@ -2,6 +2,7 @@ const Colors = {
   primary: '#14133F',
   white: '#fff',
   blue: '#6DB4DD',
+  darkblue: '#0C1927',
   pink: '#F15F7B',
   purple: '#AC97EA',
   purpleV2: '#B53689',
