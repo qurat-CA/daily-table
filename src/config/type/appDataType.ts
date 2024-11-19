@@ -49,4 +49,5 @@ export interface InputFieldProps {
   autoFocus?: boolean;
   error?: string;
   inputStyle?: ViewStyle | TextStyle;
+  rightBtn?: JSX.Element;
 }

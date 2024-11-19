@@ -13,7 +13,10 @@ type Props = {
   textColor?: string;
   textSize?: number;
   mT?: number;
+  btnPH?: number;
   style?: object;
+  start?: {x: number; y: number};
+  end?: {x: number; y: number};
 };
 
 const StandardButton = ({
@@ -26,6 +29,9 @@ const StandardButton = ({
   mT = 0,
   bgColor = '#55A0D7',
   style = {},
+  btnPH = 18,
+  start = {x: 0.4, y: 0},
+  end = {x: 0.7, y: 1},
 }: Props) => {
   return (
     <TouchableOpacity
@@ -43,11 +49,18 @@ const StandardButton = ({
       ]}>
       {useLinearGradient ? (
         <LinearGradient
-          start={{x: 0.4, y: 0}}
-          end={{x: 0.7, y: 1}}
+          start={start}
+          end={end}
           colors={gradientColors}
-          style={styles.linearGradient}>
-          <Typography semiBold color={textColor} letterSpacing={0.2}>
+          style={[
+            styles.linearGradient,
+            {paddingVertical: Metrix.VerticalSize(btnPH)},
+          ]}>
+          <Typography
+            semiBold
+            color={textColor}
+            size={textSize}
+            letterSpacing={0.2}>
             {title}
           </Typography>
         </LinearGradient>

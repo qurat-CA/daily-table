@@ -20,6 +20,7 @@ const InputField: React.FC<InputFieldProps> = ({
   inputRef,
   error,
   inputStyle,
+  rightBtn,
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
@@ -41,7 +42,7 @@ const InputField: React.FC<InputFieldProps> = ({
             style={[
               styles.input,
               {color: focused ? Colors.purpleV2 : Colors.text},
-              {fontSize: Metrix.FontSmall},
+              {fontSize: Metrix.FontExtraSmall},
               inputStyle,
             ]}
             placeholder={placeholder}
@@ -65,6 +66,8 @@ const InputField: React.FC<InputFieldProps> = ({
               )}
             </TouchableOpacity>
           )}
+
+          {rightBtn && rightBtn}
         </View>
       </LinearGradient>
 

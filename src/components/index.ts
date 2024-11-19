@@ -7,6 +7,7 @@ import Flex from './Flex';
 import ProfileUpdate from './ProfileUpdate';
 import BottomSheetComponent from './BottomSheet';
 import Checkbox from './Checkbox';
+import LevelIncrease from './LevelIncrease';
 
 export {
   Typography,
@@ -18,4 +19,5 @@ export {
   ProfileUpdate,
   BottomSheetComponent,
   Checkbox,
+  LevelIncrease,
 };
