@@ -1,6 +1,5 @@
 import {View} from 'react-native';
 import {Formik} from 'formik';
-import {object, string} from 'yup';
 
 import {
   Container,
@@ -8,17 +7,13 @@ import {
   StandardButton,
   Typography,
 } from '../../components';
-import {NavigationService, SVGS} from '../../config';
+import {forgetPasswordSchema, NavigationService, SVGS} from '../../config';
 import styles from './style';
 
 const ForgotPassword = () => {
   const initialValues = {
     email: '',
   };
-
-  const validationSchema = object({
-    email: string().email('Enter a valid email').required('Email is required'),
-  });
 
   return (
     <Container
@@ -28,8 +23,11 @@ const ForgotPassword = () => {
       headerSubText="Please enter your registered email and we sent an OTP Verification code to your email.">
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={values => console.log(values)}>
+        validationSchema={forgetPasswordSchema}
+        onSubmit={values => {
+          console.log(values);
+          NavigationService.navigate('Verification', {});
+        }}>
         {({handleChange, handleSubmit, values, errors}) => {
           return (
             <View style={styles.contentView}>
@@ -54,10 +52,7 @@ const ForgotPassword = () => {
               <View style={styles.btnCont}>
                 <StandardButton
                   useLinearGradient
-                  onPress={() => {
-                    handleSubmit();
-                    NavigationService.navigate('Verification', {});
-                  }}
+                  onPress={handleSubmit}
                   title="Proceed"
                 />
               </View>

@@ -16,7 +16,12 @@ const App = () => {
         backgroundColor="transparent"
       />
       {!isConnected && <View style={{backgroundColor: 'red', height: 20}} />}
-      <GestureHandlerRootView style={{flex: 1}}>
+      <GestureHandlerRootView
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          backgroundColor: 'grey',
+        }}>
         <BottomSheetModalProvider>
           <Navigation />
         </BottomSheetModalProvider>

@@ -1,8 +1,10 @@
-import {useState} from 'react';
+import {useCallback, useRef, useState} from 'react';
+import {BottomSheetModal} from '@gorhom/bottom-sheet';
 import {View} from 'react-native';
 import {Formik} from 'formik';
 
 import {
+  BottomSheetComponent,
   Container,
   DropdownComponent,
   Flex,
@@ -12,12 +14,22 @@ import {
   StandardButton,
   Typography,
 } from '../../components';
-import {SVGS} from '../../config';
+import {Metrix, SVGS} from '../../config';
 import styles from './style';
 import {gradientColors} from '../../components/InputField/styles';
 
 const SignupAsChild = () => {
   const [focusedField, setFocusedField] = useState<string | null>('firstName');
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  const handlePresentModalPress = useCallback(() => {
+    console.log('hdiqw');
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
 
   const initialValues = {
     firstName: '',
@@ -36,13 +48,25 @@ const SignupAsChild = () => {
       headerTitle="Create Child Profile"
       headerSubText="Create Child Profile to view and monitor progress"
       backIcon>
-      <ProfileUpdate />
-
       <Formik
         initialValues={initialValues}
         onSubmit={values => console.log(values)}>
         {({handleChange, handleSubmit, values, errors}) => (
           <>
+            <ProfileUpdate onPress={handlePresentModalPress} />
+            <BottomSheetComponent ref={bottomSheetModalRef}>
+              <View
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: Metrix.VerticalSize(70),
+                  backgroundColor: '#F8F7FB',
+                  borderRadius: 16,
+                }}>
+                <Typography>Select an avatar</Typography>
+              </View>
+            </BottomSheetComponent>
             <Flex justifyContent="space-between" gap={14} mT={20}>
               <View style={styles.nameCont}>
                 <Typography semiBold mB={10}>

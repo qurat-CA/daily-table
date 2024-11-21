@@ -4,4 +4,14 @@ import fonts from './fonts';
 import {Colors} from './color';
 import {Images, SVGS} from './images';
 
-export {NavigationService, Metrix, Colors, fonts, SVGS, Images};
+import {forgetPasswordSchema} from './validations/authValidations';
+
+export {
+  NavigationService,
+  Metrix,
+  Colors,
+  fonts,
+  SVGS,
+  Images,
+  forgetPasswordSchema,
+};

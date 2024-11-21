@@ -1,35 +1,42 @@
-import React, {forwardRef, useMemo} from 'react';
-import {StyleSheet, View} from 'react-native';
-import BottomSheet from '@gorhom/bottom-sheet';
+import {forwardRef} from 'react';
+import {StyleSheet, Text} from 'react-native';
+import {BottomSheetModal, BottomSheetView} from '@gorhom/bottom-sheet';
 
-import {Typography} from '../index';
-import {Colors} from '../../config';
+import {Colors, Metrix} from '../../config';
 
-const BottomSheetComponent = forwardRef(() => {
-  const snapPoints = useMemo(() => ['25%', '50%', '75%'], []);
+const BottomSheetComponent = forwardRef<
+  BottomSheetModal,
+  {children: React.ReactNode}
+>((props, ref) => {
+  const snapPoints = ['50%', '50%', '90%'];
 
   return (
-    <View style={styles.container}>
-      <BottomSheet snapPoints={snapPoints}>
-        {/* <BottomSheetView style={styles.contentContainer}> */}
-        <Typography color={Colors.pinkV2}>Awesome 🎉</Typography>
-        {/* </BottomSheetView> */}
-      </BottomSheet>
-    </View>
+    <BottomSheetModal
+      backgroundStyle={{borderRadius: 50, backgroundColor: Colors.primary}}
+      handleIndicatorStyle={{
+        backgroundColor: '#DFE2EB',
+        // backgroundColor: Colors.primary,
+        width: Metrix.HorizontalSize(60),
+        height: Metrix.VerticalSize(6),
+      }}
+      snapPoints={snapPoints}
+      ref={ref}
+      {...props}>
+      <BottomSheetView style={styles.contentContainer}>
+        {props.children}
+      </BottomSheetView>
+    </BottomSheetModal>
   );
 });
 
 export default BottomSheetComponent;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'grey',
-  },
   contentContainer: {
     flex: 1,
-    padding: 36,
     alignItems: 'center',
-    backgroundColor: 'pink',
+    borderRadius: 40,
+    paddingHorizontal: Metrix.HorizontalSize(25),
+    paddingVertical: Metrix.VerticalSize(40),
   },
 });

@@ -1,16 +1,19 @@
-import {useRef} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {Metrix, SVGS} from '../../config';
-import BottomSheetComponent from '../BottomSheet';
 
-const ProfileUpdate = () => {
+type ProfileUpdateProps = {
+  onPress: () => void;
+};
+
+const ProfileUpdate = ({onPress}: ProfileUpdateProps) => {
   return (
     <>
       <TouchableOpacity
         activeOpacity={Metrix.ActiveOpacity}
-        style={styles.profileCont}>
+        style={styles.profileCont}
+        onPress={onPress}>
         <SVGS.ProfieSvg />
 
         <LinearGradient
