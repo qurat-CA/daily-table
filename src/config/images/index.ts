@@ -22,6 +22,7 @@ import PlusIcon from '../../assets/images/plus-icon.svg';
 import BackIcon from '../../assets/images/back-icon.svg';
 import Calendar from '../../assets/images/calendar.svg';
 import Success from '../../assets/images/success.svg';
+import TickSvg from '../../assets/images/tick.svg';
 
 export const SVGS = {
   Logo,
@@ -48,6 +49,7 @@ export const SVGS = {
   BackIcon,
   Calendar,
   Success,
+  TickSvg,
 };
 
 export const Images = {
@@ -56,4 +58,5 @@ export const Images = {
   Welcome1: require('../../assets/images/welcome-1.png'),
   Welcome2: require('../../assets/images/welcome-2.png'),
   Welcome3: require('../../assets/images/welcome-3.png'),
+  Avatar: require('../../assets/images/avatar.png'),
 };

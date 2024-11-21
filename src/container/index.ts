@@ -9,6 +9,7 @@ import Welcome from './Welcome';
 import SelectRole from './SelectRole';
 import Home from './Home';
 import SignupAsChild from './SignupAsChild';
+import SelectAvatar from './SelectAvatar';
 
 export {
   Splash,
@@ -22,4 +23,5 @@ export {
   SelectRole,
   Home,
   SignupAsChild,
+  SelectAvatar,
 };

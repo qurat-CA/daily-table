@@ -6,9 +6,14 @@ const Flex: React.FC<FlexProps> = ({
   justifyContent = 'flex-start',
   mT = 0,
   gap = 0,
+  flexWrap = 'nowrap',
 }) => {
   return (
-    <View style={[styles.container, {justifyContent, marginTop: mT, gap: gap}]}>
+    <View
+      style={[
+        styles.container,
+        {justifyContent, marginTop: mT, gap: gap, flexWrap: flexWrap},
+      ]}>
       {children}
     </View>
   );

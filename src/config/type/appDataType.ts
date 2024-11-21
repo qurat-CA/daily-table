@@ -39,6 +39,7 @@ export type FlexProps = {
     | 'baseline'
     | 'stretch';
   gap?: number;
+  flexWrap?: 'wrap' | 'nowrap';
 };
 
 export interface InputFieldProps {

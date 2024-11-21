@@ -3,6 +3,7 @@ import {
   ChangePassword,
   Environment,
   ForgotPassword,
+  SelectAvatar,
   SelectRole,
   Signin,
   Signup,
@@ -66,5 +67,10 @@ export const AuthStack: {
     key: 'SignupAsChild',
     component: SignupAsChild,
     name: 'SignupAsChild',
+  },
+  {
+    key: 'SelectAvatar',
+    component: SelectAvatar,
+    name: 'SelectAvatar',
   },
 ];

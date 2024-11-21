@@ -117,7 +117,10 @@ const Signin = ({route}: SigninProps) => {
                 <StandardButton
                   mT={50}
                   useLinearGradient
-                  onPress={handleSubmit}
+                  onPress={() => {
+                    handleSubmit();
+                    NavigationService.navigate('SelectAvatar', {});
+                  }}
                   title="Sign in"
                 />
               </View>
