@@ -1,16 +1,17 @@
 import {useEffect, useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
-import styles from './style';
+import {TouchableOpacity, View} from 'react-native';
+import {Formik} from 'formik';
+
 import {
   Container,
   Flex,
   InputField,
+  ProfileUpdate,
   StandardButton,
   Typography,
 } from '../../components';
-import {Formik} from 'formik';
 import {Colors, Metrix, NavigationService, SVGS} from '../../config';
-import LinearGradient from 'react-native-linear-gradient';
+import styles from './style';
 
 const Signup = () => {
   const [focusedField, setFocusedField] = useState<string | null>(null);
@@ -42,20 +43,9 @@ const Signup = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values, errors}) => (
+        {({handleChange, handleSubmit, values, errors}) => (
           <>
-            <TouchableOpacity
-              activeOpacity={Metrix.ActiveOpacity}
-              onPress={() => {}}
-              style={styles.profileCont}>
-              <SVGS.ProfieSvg />
-
-              <LinearGradient
-                colors={['#8052A0', '#55A0D7', '#85D3EB']}
-                style={styles.cameraIcon}>
-                <SVGS.CameraIcon />
-              </LinearGradient>
-            </TouchableOpacity>
+            <ProfileUpdate />
             <Flex justifyContent="space-between" gap={14} mT={20}>
               <View style={styles.nameCont}>
                 <Typography semiBold mB={10}>
@@ -152,10 +142,11 @@ const Signup = () => {
 
             {showOtherField && (
               <>
-                <Typography semiBold mT={20}>
-                  Add Other Parent
+                <Typography bold mT={20}>
+                  Add Another Parent
                 </Typography>
 
+                <ProfileUpdate />
                 <Flex justifyContent="space-between" gap={14} mT={12}>
                   <View style={styles.nameCont}>
                     <Typography semiBold mB={10}>
@@ -189,6 +180,10 @@ const Signup = () => {
                   </View>
                 </Flex>
 
+                <Typography semiBold mT={10} mB={10}>
+                  Email
+                </Typography>
+
                 <InputField
                   value={values.anotherParentEmail}
                   onChange={handleChange('anotherParentEmail')}
@@ -212,16 +207,21 @@ const Signup = () => {
         )}
       </Formik>
 
-      <Typography textAlign="center" size={14} mT={90} mB={32}>
-        <Text style={{color: Colors.textV2}}>Already have an account? </Text>
-        <Text
+      <Flex mT={90} mB={32} justifyContent="center">
+        <Typography letterSpacing={0.2} size={14}>
+          Already have an account?{' '}
+        </Typography>
+
+        <TouchableOpacity
+          activeOpacity={Metrix.ActiveOpacity}
           onPress={() => {
-            NavigationService.navigate('Signup', {});
-          }}
-          style={{color: Colors.pink, fontWeight: 'bold'}}>
-          Sign In
-        </Text>
-      </Typography>
+            NavigationService.navigate('Signin', {});
+          }}>
+          <Typography letterSpacing={0.2} size={14} bold color={Colors.pink}>
+            Sign In
+          </Typography>
+        </TouchableOpacity>
+      </Flex>
     </Container>
   );
 };
