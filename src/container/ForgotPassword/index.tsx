@@ -1,13 +1,14 @@
 import {View} from 'react-native';
+import {Formik} from 'formik';
+import {object, string} from 'yup';
+
 import {
   Container,
   InputField,
   StandardButton,
   Typography,
 } from '../../components';
-import {Formik} from 'formik';
-import {object, string} from 'yup';
-import {SVGS} from '../../config';
+import {NavigationService, SVGS} from '../../config';
 import styles from './style';
 
 const ForgotPassword = () => {
@@ -21,6 +22,7 @@ const ForgotPassword = () => {
 
   return (
     <Container
+      contentContainerStyle={{flex: 1}}
       backIcon
       headerTitle="Forgot Your Password?"
       headerSubText="Please enter your registered email and we sent an OTP Verification code to your email.">
@@ -52,7 +54,10 @@ const ForgotPassword = () => {
               <View style={styles.btnCont}>
                 <StandardButton
                   useLinearGradient
-                  onPress={handleSubmit}
+                  onPress={() => {
+                    handleSubmit();
+                    NavigationService.navigate('Verification', {});
+                  }}
                   title="Proceed"
                 />
               </View>
