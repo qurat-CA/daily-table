@@ -1,14 +1,14 @@
 import {StyleSheet} from 'react-native';
-import { Metrix } from '../../config';
+import {Metrix} from '../../config';
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    paddingHorizontal:10
+  contentView: {
+    flex: 1,
+    justifyContent: 'space-between',
   },
-  
+  btnCont: {
+    marginBottom: Metrix.VerticalSize(47),
+  },
 });
 
 export default styles;

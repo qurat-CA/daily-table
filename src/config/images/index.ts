@@ -21,6 +21,7 @@ import CameraIcon from '../../assets/images/camera-icon.svg';
 import PlusIcon from '../../assets/images/plus-icon.svg';
 import BackIcon from '../../assets/images/back-icon.svg';
 import Calendar from '../../assets/images/calendar.svg';
+import Success from '../../assets/images/success.svg';
 
 export const SVGS = {
   Logo,
@@ -46,6 +47,7 @@ export const SVGS = {
   PlusIcon,
   BackIcon,
   Calendar,
+  Success,
 };
 
 export const Images = {

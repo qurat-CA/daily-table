@@ -2,7 +2,7 @@ import {TouchableOpacity, View} from 'react-native';
 import {OtpInput} from 'react-native-otp-entry';
 
 import {Container, Flex, StandardButton, Typography} from '../../components';
-import {Colors, Metrix} from '../../config';
+import {Colors, Metrix, NavigationService} from '../../config';
 import styles from './style';
 
 const Verification = () => {
@@ -70,7 +70,9 @@ const Verification = () => {
       <StandardButton
         mB={47}
         useLinearGradient
-        onPress={() => {}}
+        onPress={() => {
+          NavigationService.navigate('ChangePassword', {});
+        }}
         title="Proceed"
       />
     </Container>

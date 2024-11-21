@@ -9,6 +9,8 @@ import BottomSheetComponent from './BottomSheet';
 import Checkbox from './Checkbox';
 import LevelIncrease from './LevelIncrease';
 import DropdownComponent from './Dropdown';
+import ModalWrapper from './wrapper/ModalWrapper';
+import SuccessModal from './Modals/Success';
 
 export {
   Typography,
@@ -22,4 +24,6 @@ export {
   Checkbox,
   LevelIncrease,
   DropdownComponent,
+  ModalWrapper,
+  SuccessModal,
 };
