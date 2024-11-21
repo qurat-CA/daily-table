@@ -5,6 +5,7 @@ const Flex: React.FC<FlexProps> = ({
   children,
   justifyContent = 'flex-start',
   mT = 0,
+  mB = 0,
   gap = 0,
   flexWrap = 'nowrap',
 }) => {
@@ -12,7 +13,13 @@ const Flex: React.FC<FlexProps> = ({
     <View
       style={[
         styles.container,
-        {justifyContent, marginTop: mT, gap: gap, flexWrap: flexWrap},
+        {
+          justifyContent,
+          marginTop: mT,
+          gap: gap,
+          flexWrap: flexWrap,
+          marginBottom: mB,
+        },
       ]}>
       {children}
     </View>

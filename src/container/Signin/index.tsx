@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {Formik} from 'formik';
 import {object, string} from 'yup';
@@ -19,6 +19,9 @@ const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
   const initialValues: {email: string; password: string} = {
     email: '',
     password: '',
@@ -55,7 +58,10 @@ const Signin = ({route}: SigninProps) => {
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={values => console.log(values)}>
+        onSubmit={values => {
+          console.log(values);
+          NavigationService.navigate('SelectAvatar', {});
+        }}>
         {({handleChange, handleSubmit, values, errors}) => {
           return (
             <View style={styles.contentView}>
@@ -66,6 +72,7 @@ const Signin = ({route}: SigninProps) => {
 
                 <InputField
                   value={values.email}
+                  inputRef={emailRef}
                   onChange={handleChange('email')}
                   onFocus={() => handleFocus('email')}
                   focused={focusedField === 'email'}
@@ -73,6 +80,7 @@ const Signin = ({route}: SigninProps) => {
                   iconActive={<SVGS.MailIcon />}
                   iconInactive={<SVGS.MailIconInactive />}
                   autoFocus
+                  onSubmitEditing={() => passwordRef?.current?.focus()}
                   error={errors.email}
                 />
 
@@ -87,7 +95,9 @@ const Signin = ({route}: SigninProps) => {
                   focused={focusedField === 'password'}
                   placeholder="Enter Password"
                   isPassword
+                  inputRef={passwordRef}
                   iconActive={<SVGS.PasswordIcon />}
+                  onSubmitEditing={handleSubmit}
                   iconInactive={<SVGS.PasswordIconInactive />}
                   error={errors.password}
                 />
@@ -117,40 +127,28 @@ const Signin = ({route}: SigninProps) => {
                 <StandardButton
                   mT={50}
                   useLinearGradient
-                  onPress={() => {
-                    handleSubmit();
-                    NavigationService.navigate('SelectAvatar', {});
-                  }}
+                  onPress={handleSubmit}
                   title="Sign in"
                 />
               </View>
 
-              <TouchableOpacity
-                onPress={onPressRegister}
-                activeOpacity={Metrix.ActiveOpacity}>
-                <Typography textAlign="center" size={14} mB={32}>
+              <Flex mT={44} mB={32} justifyContent="center">
+                <Typography letterSpacing={0.2} size={14}>
                   Don’t have an account?{' '}
+                </Typography>
+
+                <TouchableOpacity
+                  activeOpacity={Metrix.ActiveOpacity}
+                  onPress={onPressRegister}>
                   <Typography
-                    textAlign="center"
-                    color={Colors.pink}
-                    bold
+                    letterSpacing={0.2}
                     size={14}
-                    mB={32}>
+                    bold
+                    color={Colors.pink}>
                     Register Now
                   </Typography>
-                </Typography>
-              </TouchableOpacity>
-
-              {/* <Typography textAlign="center" size={14} mB={32}>
-                <Text style={{color: Colors.textV2}}>
-                  Don’t have an account?{' '}
-                </Text>
-                <Text
-                  onPress={onPressRegister}
-                  style={{color: Colors.pink, fontWeight: 'bold'}}>
-                  Register Now
-                </Text>
-              </Typography> */}
+                </TouchableOpacity>
+              </Flex>
             </View>
           );
         }}

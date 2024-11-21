@@ -23,6 +23,7 @@ export type ContainerProps = {
 
 export type FlexProps = {
   mT?: number;
+  mB?: number;
   children: React.ReactNode;
   justifyContent?:
     | 'flex-start'
@@ -47,6 +48,7 @@ export interface InputFieldProps {
   onChange: (text: string) => void;
   onFocus: () => void;
   onBlur?: () => void;
+  onSubmitEditing?: () => void;
   placeholder: string;
   secureTextEntry?: boolean;
   focused: boolean;

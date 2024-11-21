@@ -21,6 +21,8 @@ const InputField: React.FC<InputFieldProps> = ({
   error,
   inputStyle,
   rightBtn,
+  onSubmitEditing,
+  // returnKeyType,
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
@@ -48,6 +50,8 @@ const InputField: React.FC<InputFieldProps> = ({
             placeholder={placeholder}
             placeholderTextColor={focused ? Colors.pinkV2 : Colors.greyV2}
             secureTextEntry={isPassword && hidePassword}
+            onSubmitEditing={onSubmitEditing}
+            // returnKeyType={returnKeyType || 'default'}
           />
           {isPassword && (
             <TouchableOpacity
