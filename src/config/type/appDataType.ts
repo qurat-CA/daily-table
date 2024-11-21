@@ -31,6 +31,13 @@ export type FlexProps = {
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
+  alignItems?:
+    | 'stretch'
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'baseline'
+    | 'stretch';
   gap?: number;
 };
 
@@ -42,8 +49,8 @@ export interface InputFieldProps {
   placeholder: string;
   secureTextEntry?: boolean;
   focused: boolean;
-  iconActive: JSX.Element;
-  iconInactive: JSX.Element;
+  iconActive?: JSX.Element;
+  iconInactive?: JSX.Element;
   inputRef?: React.RefObject<TextInput>;
   isPassword?: boolean;
   autoFocus?: boolean;

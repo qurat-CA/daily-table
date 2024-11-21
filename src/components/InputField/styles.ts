@@ -9,19 +9,22 @@ const styles = StyleSheet.create({
   input: {
     height: Metrix.VerticalSize(56),
     flex: 1,
-    // color: Colors.purpleV2,
     ...fonts.medium(),
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F9F9F9',
-    borderColor: '#CACACA',
-    borderWidth: 1,
     borderRadius: Metrix.Radius,
     paddingHorizontal: Metrix.HorizontalSize(16),
     gap: 10,
   },
+
+  iconContainer: {
+    // Ensure the icon is aligned properly
+    marginRight: 10, // Adjust margin to fit layout
+  },
+
   mailIcon: {},
 });
 

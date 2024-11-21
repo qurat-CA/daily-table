@@ -122,7 +122,23 @@ const Signin = ({route}: SigninProps) => {
                 />
               </View>
 
-              <Typography textAlign="center" size={14} mB={32}>
+              <TouchableOpacity
+                onPress={onPressRegister}
+                activeOpacity={Metrix.ActiveOpacity}>
+                <Typography textAlign="center" size={14} mB={32}>
+                  Don’t have an account?{' '}
+                  <Typography
+                    textAlign="center"
+                    color={Colors.pink}
+                    bold
+                    size={14}
+                    mB={32}>
+                    Register Now
+                  </Typography>
+                </Typography>
+              </TouchableOpacity>
+
+              {/* <Typography textAlign="center" size={14} mB={32}>
                 <Text style={{color: Colors.textV2}}>
                   Don’t have an account?{' '}
                 </Text>
@@ -131,7 +147,7 @@ const Signin = ({route}: SigninProps) => {
                   style={{color: Colors.pink, fontWeight: 'bold'}}>
                   Register Now
                 </Text>
-              </Typography>
+              </Typography> */}
             </View>
           );
         }}

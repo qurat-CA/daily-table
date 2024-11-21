@@ -8,6 +8,7 @@ import ProfileUpdate from './ProfileUpdate';
 import BottomSheetComponent from './BottomSheet';
 import Checkbox from './Checkbox';
 import LevelIncrease from './LevelIncrease';
+import DropdownComponent from './Dropdown';
 
 export {
   Typography,
@@ -20,4 +21,5 @@ export {
   BottomSheetComponent,
   Checkbox,
   LevelIncrease,
+  DropdownComponent,
 };

@@ -4,6 +4,7 @@ import {Formik} from 'formik';
 
 import {
   Container,
+  DropdownComponent,
   Flex,
   InputField,
   LevelIncrease,
@@ -138,10 +139,43 @@ const SignupAsChild = () => {
             <Typography semiBold mT={20}>
               Level Increase
             </Typography>
+
             <LevelIncrease />
+
+            <Typography semiBold mT={20}>
+              Select Currency
+            </Typography>
+
+            <DropdownComponent
+              mT={10}
+              data={[{label: 'Child', value: 'child'}]}
+            />
+
+            <Typography semiBold mT={20} mB={10}>
+              Max Points
+            </Typography>
+
+            <InputField
+              value={values.dob}
+              onChange={handleChange('dob')}
+              onFocus={() => handleFocus('dob')}
+              placeholder="00"
+              focused={focusedField === 'dob'}
+              error={errors.dob}
+            />
+
+            <Typography semiBold mT={20}>
+              Points Per Sheet
+            </Typography>
+
+            <DropdownComponent
+              mT={10}
+              data={[{label: 'Child', value: 'child'}]}
+            />
 
             <StandardButton
               mT={50}
+              mB={55}
               useLinearGradient
               onPress={handleSubmit}
               title="Create Children"

@@ -13,6 +13,7 @@ type Props = {
   textColor?: string;
   textSize?: number;
   mT?: number;
+  mB?: number;
   btnPH?: number;
   style?: object;
   start?: {x: number; y: number};
@@ -27,6 +28,7 @@ const StandardButton = ({
   textColor = '#fff',
   textSize = 16,
   mT = 0,
+  mB = 0,
   bgColor = '#55A0D7',
   style = {},
   btnPH = 18,
@@ -44,7 +46,10 @@ const StandardButton = ({
           paddingVertical: Metrix.VerticalSize(8),
           borderRadius: Metrix.Radius,
         },
-        {marginTop: Metrix.VerticalSize(mT)},
+        {
+          marginTop: Metrix.VerticalSize(mT),
+          marginBottom: Metrix.VerticalSize(mB),
+        },
         style,
       ]}>
       {useLinearGradient ? (
