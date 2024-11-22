@@ -1,7 +1,6 @@
-import {useEffect, useRef, useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {useRef, useState} from 'react';
+import {TextInput, TouchableOpacity, View} from 'react-native';
 import {Formik} from 'formik';
-import {object, string} from 'yup';
 
 import {SigninProps} from '../../config/type/navigation';
 import {
@@ -12,27 +11,27 @@ import {
   StandardButton,
   Typography,
 } from '../../components';
-import {Colors, Metrix, NavigationService, SVGS} from '../../config';
+import {
+  Colors,
+  Metrix,
+  NavigationService,
+  SVGS,
+  signinSchema,
+} from '../../config';
+import AuthStore from '../../store/auth';
 import styles from './style';
 
 const Signin = ({route}: SigninProps) => {
   const {role} = route?.params;
-
-  const [focusedField, setFocusedField] = useState<string | null>(null);
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const [focusedField, setFocusedField] = useState<string>('email');
+  const emailRef = useRef<TextInput>(null);
+  const passwordRef = useRef<TextInput>(null);
+  const {updateUser} = AuthStore.user();
 
   const initialValues: {email: string; password: string} = {
     email: '',
     password: '',
   };
-
-  const validationSchema = object({
-    email: string().email('Enter a valid email').required('Email is required'),
-    password: string()
-      .min(6, 'Password must contain min 8 characters')
-      .required('Password is required'),
-  });
 
   const handleFocus = (field: string) => {
     setFocusedField(field);
@@ -46,10 +45,6 @@ const Signin = ({route}: SigninProps) => {
     }
   };
 
-  useEffect(() => {
-    setFocusedField('email');
-  }, []);
-
   return (
     <Container
       contentContainerStyle={{flex: 1}}
@@ -57,9 +52,9 @@ const Signin = ({route}: SigninProps) => {
       headerSubText="Let’s Get You Started Sign In To Continue.">
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={signinSchema}
         onSubmit={values => {
-          console.log(values);
+          // updateUser(Math.random(), values.email, values.password);
           NavigationService.navigate('SelectAvatar', {});
         }}>
         {({handleChange, handleSubmit, values, errors}) => {
@@ -102,7 +97,7 @@ const Signin = ({route}: SigninProps) => {
                   error={errors.password}
                 />
 
-                <Flex mT={10} justifyContent="space-between">
+                <Flex mT={14} justifyContent="space-between">
                   <Flex gap={7}>
                     <Checkbox />
                     <Typography
@@ -118,7 +113,11 @@ const Signin = ({route}: SigninProps) => {
                     onPress={() => {
                       NavigationService.navigate('ForgotPassword', {});
                     }}>
-                    <Typography medium color={Colors.pink} size={14}>
+                    <Typography
+                      medium
+                      color={Colors.pink}
+                      letterSpacing={0.2}
+                      size={14}>
                       Forgot Password?
                     </Typography>
                   </TouchableOpacity>

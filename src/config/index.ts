@@ -4,7 +4,10 @@ import fonts from './fonts';
 import {Colors} from './color';
 import {Images, SVGS} from './images';
 
-import {forgetPasswordSchema} from './validations/authValidations';
+import {
+  forgetPasswordSchema,
+  signinSchema,
+} from './validations/authValidations';
 
 export {
   NavigationService,
@@ -14,4 +17,5 @@ export {
   SVGS,
   Images,
   forgetPasswordSchema,
+  signinSchema,
 };

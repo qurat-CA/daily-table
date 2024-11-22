@@ -78,12 +78,15 @@ const styles = StyleSheet.create({
     marginBottom: Metrix.VerticalSize(24),
     marginHorizontal: Metrix.HorizontalSize(24),
   },
+
   backIconContainer: {
     marginTop: Metrix.VerticalSize(70),
   },
+
   backButton: {
     marginBottom: Metrix.VerticalSize(50),
   },
+
   contentContainer: {
     flex: 1,
     backgroundColor: Colors.white,
