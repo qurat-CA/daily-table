@@ -8,6 +8,7 @@ const Flex: React.FC<FlexProps> = ({
   mB = 0,
   gap = 0,
   flexWrap = 'nowrap',
+  style = {},
 }) => {
   return (
     <View
@@ -20,6 +21,7 @@ const Flex: React.FC<FlexProps> = ({
           flexWrap: flexWrap,
           marginBottom: mB,
         },
+        style,
       ]}>
       {children}
     </View>

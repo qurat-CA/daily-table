@@ -23,6 +23,9 @@ import BackIcon from '../../assets/images/back-icon.svg';
 import Calendar from '../../assets/images/calendar.svg';
 import Success from '../../assets/images/success.svg';
 import TickSvg from '../../assets/images/tick.svg';
+import EditProfile from '../../assets/images/edit-profile-icon.svg';
+import Gallery from '../../assets/images/gallery.svg';
+import Camera from '../../assets/images/camera.svg';
 
 export const SVGS = {
   Logo,
@@ -50,6 +53,9 @@ export const SVGS = {
   Calendar,
   Success,
   TickSvg,
+  EditProfile,
+  Gallery,
+  Camera,
 };
 
 export const Images = {
