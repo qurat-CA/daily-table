@@ -28,6 +28,7 @@
     "react-native-element-dropdown": "^2.12.2",
     "react-native-gesture-handler": "^2.20.2",
     "react-native-image-crop-picker": "^0.41.4",
+    "react-native-image-picker": "^7.1.2",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-otp-entry": "^1.7.3",

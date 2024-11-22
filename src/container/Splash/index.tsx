@@ -11,7 +11,7 @@ const Splash = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      NavigationService.navigate(email ? 'Home' : 'Welcome', {});
+      NavigationService.navigate(email ? 'HomeStack' : 'Welcome', {});
     }, 2000);
   }, []);
 
