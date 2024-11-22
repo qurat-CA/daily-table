@@ -11,7 +11,7 @@ const MainStackNavigator = createStackNavigator<RootStackParamList>();
 export const MainStack = () => {
   // const token: boolean = false;
   const {email} = AuthStore.user();
-  const AppStacks = true ? AppStack : AuthStack;
+  const AppStacks = email ? AppStack : AuthStack;
 
   return (
     <MainStackNavigator.Navigator

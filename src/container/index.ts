@@ -10,6 +10,9 @@ import SelectRole from './SelectRole';
 import Home from './Home';
 import SignupAsChild from './SignupAsChild';
 import SelectAvatar from './SelectAvatar';
+import Quizzes from './Quizzes';
+import MoneyPot from './MoneyPot';
+import Profile from './Profile';
 
 export {
   Splash,
@@ -24,4 +27,7 @@ export {
   Home,
   SignupAsChild,
   SelectAvatar,
+  Quizzes,
+  MoneyPot,
+  Profile,
 };

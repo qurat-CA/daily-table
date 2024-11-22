@@ -27,6 +27,11 @@ import EditProfile from '../../assets/images/edit-profile-icon.svg';
 import Gallery from '../../assets/images/gallery.svg';
 import Camera from '../../assets/images/camera.svg';
 
+import HomeTab from '../../assets/images/home-tab.svg';
+import QuizzesTab from '../../assets/images/quiz-tab.svg';
+import MoneyPotTab from '../../assets/images/moneypot-tab.svg';
+import ProfileTab from '../../assets/images/profile-tab.svg';
+
 export const SVGS = {
   Logo,
   AppNameText,
@@ -56,6 +61,13 @@ export const SVGS = {
   EditProfile,
   Gallery,
   Camera,
+};
+
+export const TAB_SVGS = {
+  HomeTab,
+  QuizzesTab,
+  MoneyPotTab,
+  ProfileTab,
 };
 
 export const Images = {
