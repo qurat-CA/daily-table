@@ -1,7 +1,7 @@
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-import {Metrix} from '../../config';
+import {Metrix, SVGS} from '../../config';
 import {useState} from 'react';
 
 const Checkbox = () => {
@@ -11,7 +11,9 @@ const Checkbox = () => {
       activeOpacity={Metrix.ActiveOpacity}
       style={styles.container}
       onPress={() => setChecked(!checked)}>
-      {checked && <Icon name="check" size={Metrix.VerticalSize(12)} />}
+      {checked && (
+        <SVGS.TickSvg width={10} height={10} stroke={'#000'} fill={'#000'} />
+      )}
     </TouchableOpacity>
   );
 };
