@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {Formik} from 'formik';
 
 import {
   Container,
   Flex,
-  InputField,
+  FormInputField,
   ProfileUpdate,
   StandardButton,
   Typography,
@@ -14,7 +14,7 @@ import {Colors, Metrix, NavigationService, SVGS} from '../../config';
 import styles from './style';
 
 const Signup = () => {
-  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [focusedField, setFocusedField] = useState<string | null>('firstName');
   const [showOtherField, setShowOtherField] = useState(false);
 
   const initialValues = {
@@ -28,13 +28,7 @@ const Signup = () => {
     anotherParentEmail: '',
   };
 
-  const handleFocus = (field: string) => {
-    setFocusedField(field);
-  };
-
-  useEffect(() => {
-    setFocusedField('firstName');
-  }, []);
+  const handleFocus = (field: string) => setFocusedField(field);
 
   return (
     <Container
@@ -45,45 +39,35 @@ const Signup = () => {
         onSubmit={values => console.log(values)}>
         {({handleChange, handleSubmit, values, errors}) => (
           <>
-            <ProfileUpdate />
+            <ProfileUpdate onPress={() => {}} />
+
             <Flex justifyContent="space-between" gap={14} mT={20}>
-              <View style={styles.nameCont}>
-                <Typography semiBold mB={10}>
-                  First Name
-                </Typography>
-                <InputField
-                  value={values.firstName}
-                  onChange={handleChange('firstName')}
-                  onFocus={() => handleFocus('firstName')}
-                  placeholder="Enter First Name"
-                  focused={focusedField === 'firstName'}
-                  iconActive={<SVGS.UserActive />}
-                  iconInactive={<SVGS.UserInactive />}
-                  error={errors.firstName}
-                />
-              </View>
-              <View style={styles.nameCont}>
-                <Typography semiBold mB={10}>
-                  Last Name
-                </Typography>
-                <InputField
-                  value={values.lastName}
-                  onChange={handleChange('lastName')}
-                  onFocus={() => handleFocus('lastName')}
-                  placeholder="Enter Last Name"
-                  focused={focusedField === 'lastName'}
-                  iconActive={<SVGS.UserActive />}
-                  iconInactive={<SVGS.UserInactive />}
-                  error={errors.lastName}
-                />
-              </View>
+              <FormInputField
+                label="First Name"
+                value={values.firstName}
+                onChange={handleChange('firstName')}
+                onFocus={() => handleFocus('firstName')}
+                placeholder="Enter First Name"
+                focused={focusedField === 'firstName'}
+                iconActive={<SVGS.UserActive />}
+                iconInactive={<SVGS.UserInactive />}
+                error={errors.firstName}
+              />
+              <FormInputField
+                label="Last Name"
+                value={values.lastName}
+                onChange={handleChange('lastName')}
+                onFocus={() => handleFocus('lastName')}
+                placeholder="Enter Last Name"
+                focused={focusedField === 'lastName'}
+                iconActive={<SVGS.UserActive />}
+                iconInactive={<SVGS.UserInactive />}
+                error={errors.lastName}
+              />
             </Flex>
 
-            <Typography semiBold mT={10} mB={10}>
-              Email
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Email"
               value={values.email}
               onChange={handleChange('email')}
               onFocus={() => handleFocus('email')}
@@ -94,11 +78,8 @@ const Signup = () => {
               error={errors.email}
             />
 
-            <Typography semiBold mT={20} mB={10}>
-              Password
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Password"
               value={values.password}
               onChange={handleChange('password')}
               onFocus={() => handleFocus('password')}
@@ -109,12 +90,8 @@ const Signup = () => {
               error={errors.password}
               isPassword
             />
-
-            <Typography semiBold mT={20} mB={10}>
-              Confirm Password
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Confirm Password"
               value={values.confirmPassword}
               onChange={handleChange('confirmPassword')}
               onFocus={() => handleFocus('confirmPassword')}
@@ -127,9 +104,7 @@ const Signup = () => {
             />
 
             <TouchableOpacity
-              onPress={() => {
-                setShowOtherField(true);
-              }}
+              onPress={() => setShowOtherField(true)}
               activeOpacity={Metrix.ActiveOpacity}
               style={styles.addUserCont}>
               <View style={styles.plusCont}>
@@ -145,46 +120,35 @@ const Signup = () => {
                 <Typography bold mT={20}>
                   Add Another Parent
                 </Typography>
+                <ProfileUpdate onPress={() => {}} />
 
-                <ProfileUpdate />
                 <Flex justifyContent="space-between" gap={14} mT={12}>
-                  <View style={styles.nameCont}>
-                    <Typography semiBold mB={10}>
-                      First Name
-                    </Typography>
-                    <InputField
-                      value={values.anotherParentFirstName}
-                      onChange={handleChange('anotherParentFirstName')}
-                      onFocus={() => handleFocus('anotherParentFirstName')}
-                      placeholder="Enter First Name"
-                      focused={focusedField === 'anotherParentFirstName'}
-                      iconActive={<SVGS.UserActive />}
-                      iconInactive={<SVGS.UserInactive />}
-                      error={errors.anotherParentFirstName}
-                    />
-                  </View>
-                  <View style={styles.nameCont}>
-                    <Typography semiBold mB={10}>
-                      Last Name
-                    </Typography>
-                    <InputField
-                      value={values.anotherParentLastName}
-                      onChange={handleChange('anotherParentLastName')}
-                      onFocus={() => handleFocus('anotherParentLastName')}
-                      placeholder="Enter Last Name"
-                      focused={focusedField === 'anotherParentLastName'}
-                      iconActive={<SVGS.UserActive />}
-                      iconInactive={<SVGS.UserInactive />}
-                      error={errors.anotherParentLastName}
-                    />
-                  </View>
+                  <FormInputField
+                    label="First Name"
+                    value={values.anotherParentFirstName}
+                    onChange={handleChange('anotherParentFirstName')}
+                    onFocus={() => handleFocus('anotherParentFirstName')}
+                    placeholder="Enter First Name"
+                    focused={focusedField === 'anotherParentFirstName'}
+                    iconActive={<SVGS.UserActive />}
+                    iconInactive={<SVGS.UserInactive />}
+                    error={errors.anotherParentFirstName}
+                  />
+                  <FormInputField
+                    label="Last Name"
+                    value={values.anotherParentLastName}
+                    onChange={handleChange('anotherParentLastName')}
+                    onFocus={() => handleFocus('anotherParentLastName')}
+                    placeholder="Enter Last Name"
+                    focused={focusedField === 'anotherParentLastName'}
+                    iconActive={<SVGS.UserActive />}
+                    iconInactive={<SVGS.UserInactive />}
+                    error={errors.anotherParentLastName}
+                  />
                 </Flex>
 
-                <Typography semiBold mT={10} mB={10}>
-                  Email
-                </Typography>
-
-                <InputField
+                <FormInputField
+                  label="Email"
                   value={values.anotherParentEmail}
                   onChange={handleChange('anotherParentEmail')}
                   onFocus={() => handleFocus('anotherParentEmail')}
@@ -211,12 +175,11 @@ const Signup = () => {
         <Typography letterSpacing={0.2} size={14}>
           Already have an account?{' '}
         </Typography>
-
         <TouchableOpacity
           activeOpacity={Metrix.ActiveOpacity}
-          onPress={() => {
-            NavigationService.navigate('Signin', {});
-          }}>
+          onPress={() =>
+            NavigationService.navigate('Signin', {role: 'parent'})
+          }>
           <Typography letterSpacing={0.2} size={14} bold color={Colors.pink}>
             Sign In
           </Typography>

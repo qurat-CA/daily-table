@@ -3,12 +3,15 @@ import {ImageBackground, View} from 'react-native';
 
 import {Images, SVGS} from '../../config/images';
 import {NavigationService} from '../../config';
+import AuthStore from '../../store/auth';
 import styles from './style';
 
 const Splash = () => {
+  const {email} = AuthStore.user();
+
   useEffect(() => {
     setTimeout(() => {
-      NavigationService.navigate('Welcome', {});
+      NavigationService.navigate(email ? 'Home' : 'Welcome', {});
     }, 2000);
   }, []);
 

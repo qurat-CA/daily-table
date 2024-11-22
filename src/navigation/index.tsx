@@ -4,12 +4,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {RootStackParamList} from '../config/type/navigation';
 import {AuthStack} from './AuthStack';
 import {AppStack} from './AppStack';
+import AuthStore from '../store/auth';
 
 const MainStackNavigator = createStackNavigator<RootStackParamList>();
 
 export const MainStack = () => {
-  const token: boolean = false;
-  const AppStacks = token ? AppStack : AuthStack;
+  // const token: boolean = false;
+  const {email} = AuthStore.user();
+  const AppStacks = email ? AppStack : AuthStack;
 
   return (
     <MainStackNavigator.Navigator

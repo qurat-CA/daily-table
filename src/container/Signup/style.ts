@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import {Colors, Metrix} from '../../config';
 
 const styles = StyleSheet.create({
-  nameCont: {flex: 0.5, marginBottom: Metrix.VerticalSize(16)},
+  nameCont: {flex: 0.5},
   addUserCont: {
     height: Metrix.VerticalSize(61),
     marginTop: Metrix.VerticalSize(30),

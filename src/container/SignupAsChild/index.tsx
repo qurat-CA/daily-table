@@ -1,21 +1,19 @@
 import {useCallback, useRef, useState} from 'react';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
-import {View} from 'react-native';
 import {Formik} from 'formik';
 
 import {
-  BottomSheetComponent,
   Container,
   DropdownComponent,
   Flex,
-  InputField,
+  FormInputField,
   LevelIncrease,
+  ProfileBottomSheet,
   ProfileUpdate,
   StandardButton,
   Typography,
 } from '../../components';
-import {Metrix, SVGS} from '../../config';
-import styles from './style';
+import {SVGS} from '../../config';
 import {gradientColors} from '../../components/InputField/styles';
 
 const SignupAsChild = () => {
@@ -23,12 +21,7 @@ const SignupAsChild = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   const handlePresentModalPress = useCallback(() => {
-    console.log('hdiqw');
     bottomSheetModalRef.current?.present();
-  }, []);
-
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log('handleSheetChanges', index);
   }, []);
 
   const initialValues = {
@@ -39,9 +32,7 @@ const SignupAsChild = () => {
     dob: '',
   };
 
-  const handleFocus = (field: string) => {
-    setFocusedField(field);
-  };
+  const handleFocus = (field: string) => setFocusedField(field);
 
   return (
     <Container
@@ -54,57 +45,35 @@ const SignupAsChild = () => {
         {({handleChange, handleSubmit, values, errors}) => (
           <>
             <ProfileUpdate onPress={handlePresentModalPress} />
-            <BottomSheetComponent ref={bottomSheetModalRef}>
-              <View
-                style={{
-                  width: '100%',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: Metrix.VerticalSize(70),
-                  backgroundColor: '#F8F7FB',
-                  borderRadius: 16,
-                }}>
-                <Typography>Select an avatar</Typography>
-              </View>
-            </BottomSheetComponent>
-            <Flex justifyContent="space-between" gap={14} mT={20}>
-              <View style={styles.nameCont}>
-                <Typography semiBold mB={10}>
-                  First Name
-                </Typography>
-                <InputField
-                  value={values.firstName}
-                  onChange={handleChange('firstName')}
-                  onFocus={() => handleFocus('firstName')}
-                  placeholder="Enter First Name"
-                  focused={focusedField === 'firstName'}
-                  iconActive={<SVGS.UserActive />}
-                  iconInactive={<SVGS.UserInactive />}
-                  error={errors.firstName}
-                />
-              </View>
-              <View style={styles.nameCont}>
-                <Typography semiBold mB={10}>
-                  Last Name
-                </Typography>
-                <InputField
-                  value={values.lastName}
-                  onChange={handleChange('lastName')}
-                  onFocus={() => handleFocus('lastName')}
-                  placeholder="Enter Last Name"
-                  focused={focusedField === 'lastName'}
-                  iconActive={<SVGS.UserActive />}
-                  iconInactive={<SVGS.UserInactive />}
-                  error={errors.lastName}
-                />
-              </View>
+            <ProfileBottomSheet bottomSheetModalRef={bottomSheetModalRef} />
+
+            <Flex justifyContent="space-between" gap={14}>
+              <FormInputField
+                label="First Name"
+                value={values.firstName}
+                onChange={handleChange('firstName')}
+                onFocus={() => handleFocus('firstName')}
+                placeholder="Enter First Name"
+                focused={focusedField === 'firstName'}
+                iconActive={<SVGS.UserActive />}
+                iconInactive={<SVGS.UserInactive />}
+                error={errors.firstName}
+              />
+              <FormInputField
+                label="Last Name"
+                value={values.lastName}
+                onChange={handleChange('lastName')}
+                onFocus={() => handleFocus('lastName')}
+                placeholder="Enter Last Name"
+                focused={focusedField === 'lastName'}
+                iconActive={<SVGS.UserActive />}
+                iconInactive={<SVGS.UserInactive />}
+                error={errors.lastName}
+              />
             </Flex>
 
-            <Typography semiBold mB={10}>
-              Date Of Birth
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Date Of Birth"
               value={values.dob}
               onChange={handleChange('dob')}
               onFocus={() => handleFocus('dob')}
@@ -115,11 +84,8 @@ const SignupAsChild = () => {
               error={errors.dob}
             />
 
-            <Typography semiBold mT={20} mB={10}>
-              Login ID
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Login ID"
               value={values.password}
               onChange={handleChange('password')}
               onFocus={() => handleFocus('password')}
@@ -129,26 +95,17 @@ const SignupAsChild = () => {
               iconInactive={<SVGS.PasswordIconInactive />}
               error={errors.password}
               rightBtn={
-                <View style={{width: 90, marginRight: -6}}>
-                  <StandardButton
-                    gradientColors={gradientColors}
-                    start={{x: 1, y: 1}}
-                    end={{x: 1, y: 1}}
-                    title="Regenerate"
-                    useLinearGradient
-                    onPress={() => {}}
-                    btnPH={10}
-                    textSize={11}
-                  />
-                </View>
+                <StandardButton
+                  onPress={() => {}}
+                  gradientColors={gradientColors}
+                  title="Regenerate"
+                  useLinearGradient
+                />
               }
             />
 
-            <Typography semiBold mT={20} mB={10}>
-              Password
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Password"
               value={values.password}
               onChange={handleChange('password')}
               onFocus={() => handleFocus('password')}
@@ -163,23 +120,18 @@ const SignupAsChild = () => {
             <Typography semiBold mT={20}>
               Level Increase
             </Typography>
-
             <LevelIncrease />
 
             <Typography semiBold mT={20}>
               Select Currency
             </Typography>
-
             <DropdownComponent
               mT={10}
               data={[{label: 'Child', value: 'child'}]}
             />
 
-            <Typography semiBold mT={20} mB={10}>
-              Max Points
-            </Typography>
-
-            <InputField
+            <FormInputField
+              label="Max Points"
               value={values.dob}
               onChange={handleChange('dob')}
               onFocus={() => handleFocus('dob')}
@@ -191,7 +143,6 @@ const SignupAsChild = () => {
             <Typography semiBold mT={20}>
               Points Per Sheet
             </Typography>
-
             <DropdownComponent
               mT={10}
               data={[{label: 'Child', value: 'child'}]}

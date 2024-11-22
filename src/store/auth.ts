@@ -7,6 +7,13 @@ type BaseUrl_Type = {
   updateUrl: (url: string) => void;
 };
 
+type User_Type = {
+  id: number;
+  email: string;
+  password: string;
+  updateUser: (id: number, email: string, password: string) => void;
+};
+
 const baseUrl = create<BaseUrl_Type>()(
   persist(
     set => ({
@@ -20,6 +27,22 @@ const baseUrl = create<BaseUrl_Type>()(
   ),
 );
 
+const user = create<User_Type>()(
+  persist(
+    set => ({
+      id: 0,
+      email: '',
+      password: '',
+      updateUser: (id, email, password) => set(() => ({id, email, password})),
+    }),
+    {
+      name: 'user',
+      storage: createJSONStorage(() => AsyncStorage),
+    },
+  ),
+);
+
 export default {
   baseUrl,
+  user,
 };
