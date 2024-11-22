@@ -11,6 +11,8 @@ import LevelIncrease from './LevelIncrease';
 import DropdownComponent from './Dropdown';
 import ModalWrapper from './wrapper/ModalWrapper';
 import SuccessModal from './Modals/Success';
+import {FormInputField} from './FormInputField';
+import ProfileBottomSheet from './ProfileBottomSheet';
 
 export {
   Typography,
@@ -25,5 +27,7 @@ export {
   LevelIncrease,
   DropdownComponent,
   ModalWrapper,
+  FormInputField,
   SuccessModal,
+  ProfileBottomSheet,
 };

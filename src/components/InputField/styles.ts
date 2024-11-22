@@ -21,8 +21,7 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    // Ensure the icon is aligned properly
-    marginRight: 10, // Adjust margin to fit layout
+    marginRight: 10,
   },
 
   mailIcon: {},
