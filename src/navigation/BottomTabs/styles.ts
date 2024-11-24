@@ -12,10 +12,17 @@ const styles = StyleSheet.create({
     width: '100%',
     borderTopRightRadius: 26,
     borderTopLeftRadius: 26,
-    alignItems: 'center',
+    paddingHorizontal: 20,
+    // alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'center',
-    ...shadow,
+    // justifyContent: 'center',
+    // ...shadow,
+  },
+  curvedBackground: {
+    position: 'absolute',
+    width: '100%',
+    bottom: 0,
+    zIndex: -1, // Place the background behind the tabs
   },
 });
 
