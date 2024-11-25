@@ -1,12 +1,18 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import {Colors} from '../../config';
+
+import {AppContainer, Typography, UserHeader} from '../../components';
+import {Metrix} from '../../config';
 
 const Home = () => {
   return (
-    <View style={{flex: 1, backgroundColor: Colors.white}}>
-      <Text>Home</Text>
-    </View>
+    <AppContainer
+      headerChildren={
+        <View style={{marginTop: Metrix.VerticalSize(50)}}>
+          <UserHeader />
+        </View>
+      }>
+      <Typography>efhqie</Typography>
+    </AppContainer>
   );
 };
 

@@ -14,6 +14,8 @@ import SuccessModal from './Modals/Success';
 import {FormInputField} from './FormInputField';
 import ProfileBottomSheet from './ProfileBottomSheet';
 import GradientText from './GradientText';
+import AppContainer from './wrapper/AppContainer';
+import UserHeader from './UserHeader';
 
 export {
   Typography,
@@ -32,4 +34,6 @@ export {
   SuccessModal,
   ProfileBottomSheet,
   GradientText,
+  AppContainer,
+  UserHeader,
 };

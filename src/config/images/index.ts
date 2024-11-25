@@ -26,6 +26,7 @@ import TickSvg from '../../assets/images/tick.svg';
 import EditProfile from '../../assets/images/edit-profile-icon.svg';
 import Gallery from '../../assets/images/gallery.svg';
 import Camera from '../../assets/images/camera.svg';
+import NotificationIcon from '../../assets/images/notification-icon.svg';
 
 import HomeTab from '../../assets/images/home-tab.svg';
 import QuizzesTab from '../../assets/images/quiz-tab.svg';
@@ -65,6 +66,7 @@ export const SVGS = {
   EditProfile,
   Gallery,
   Camera,
+  NotificationIcon,
 };
 
 export const TAB_SVGS = {
