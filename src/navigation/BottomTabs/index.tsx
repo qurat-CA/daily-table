@@ -1,27 +1,28 @@
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
-import {bottomTabConfig} from './config';
-import {Typography} from '../../components';
-import {Colors, Metrix} from '../../config';
-import styles from './styles';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 
+import {GradientText, Typography} from '../../components';
+import {bottomTabConfig} from './config';
+import {Colors, Metrix} from '../../config';
+import {gradientColors} from '../../components/InputField/styles';
+import styles from './styles';
+
 const HomeTabNavigation = createBottomTabNavigator();
 
 const HomeTabs = () => {
   function MyTabBar({state, descriptors, navigation}: any) {
     const circlePosition = useSharedValue(0);
-    const fadeOpacity = useSharedValue(0); // Shared value for opacity
+    const fadeOpacity = useSharedValue(0);
 
     const animateCircle = (position: number) => {
       circlePosition.value = withTiming(position, {
-        duration: 300,
+        duration: 150,
       });
     };
 
@@ -53,13 +54,13 @@ const HomeTabs = () => {
           const onPress = () => {
             if (!isFocused) {
               animateCircle(Metrix.VerticalSize(-30));
-              // fadeOut();
+              fadeOut();
               navigation.navigate(route.name);
             }
           };
 
           if (isFocused) {
-            animateCircle(45);
+            animateCircle(40);
             fadeIn();
           }
 
@@ -76,82 +77,64 @@ const HomeTabs = () => {
               key={Math?.random()}
               accessibilityRole="button"
               activeOpacity={Metrix.ActiveOpacity}
-              style={{
-                flex: 1,
-                justifyContent: 'flex-end',
-                paddingBottom: 10,
-                alignItems: 'center',
-              }}
+              style={styles.tabContainer}
               onPress={onPress}>
               {!isFocused && bottomTabConfig[label]?.icon(isFocused)}
-              <Typography
-                mT={5}
-                size={12}
-                color={isFocused ? Colors.purpleV2 : '#9DB2CE'}>
-                {label}
-              </Typography>
 
-              {/* View with white background */}
+              {isFocused ? (
+                <GradientText
+                  colors={gradientColors}
+                  style={{fontSize: 12, fontWeight: 'bold'}}>
+                  {label}
+                </GradientText>
+              ) : (
+                <Typography
+                  mT={5}
+                  size={12}
+                  color={isFocused ? Colors.purpleV2 : '#9DB2CE'}>
+                  {label}
+                </Typography>
+              )}
+
               {isFocused && (
                 <Animated.View
                   style={[
                     {
                       position: 'absolute',
-                      width: Metrix.HorizontalSize(60),
-                      height: Metrix.VerticalSize(60),
+                      height: Metrix.VerticalSize(56),
                       top: 0,
                       zIndex: -2,
-                      // backgroundColor: 'pink',
                     },
-                    animatedFadeStyle, // Apply fade animation
+                    animatedFadeStyle,
                   ]}>
+                  {/* <View
+                    style={{
+                      backgroundColor: Colors.primary,
+                      width: 30,
+                      height: 30,
+                      borderRadius: 50,
+                      position: 'absolute',
+                      borderWidth: 6,
+                      borderColor: Colors.primary,
+                      top: Metrix.VerticalSize(-2),
+                      left: Metrix.HorizontalSize(-26),
+                    }}
+                  /> */}
                   <View style={{position: 'relative'}}>
-                    <View
-                      style={{
-                        backgroundColor: Colors.primary,
-                        width: 30,
-                        height: 30,
-                        borderRadius: 50,
-                        position:"absolute",
-                        borderWidth:6,
-                        borderLeftColor: Colors.primary,
-                        borderColor:"#fff",
-                        top: -6,
-                        left:-25
-                      }}
-                    />
-                    <View
-                      style={{
-                        width: Metrix.HorizontalSize(60),
-                        height: Metrix.VerticalSize(60),
-                        top: -20,
-                        // bottom: -30,
-                        left: 0,
-                        position: 'absolute',
-                        backgroundColor: Colors.white,
-                        borderRadius: 100,
-                        zIndex: -99,
-                      }}></View>
+                    <View style={styles.animatedWhiteBGCircle} />
                   </View>
                 </Animated.View>
               )}
 
-              {/* Animated Circle */}
               {isFocused && (
                 <Animated.View
                   style={[
-                    {
-                      width: Metrix.HorizontalSize(54),
-                      height: Metrix.VerticalSize(54),
-                      position: 'absolute',
-                      backgroundColor: Colors.primary,
-                      borderRadius: 100,
-                      zIndex: -2,
-                    },
-                    animatedCircleStyle, // Circle animation
-                    animatedFadeStyle, // Apply fade animation
-                  ]}
-                />
+                    styles.animatedCircle,
+                    animatedCircleStyle,
+                    animatedFadeStyle,
+                  ]}>
+                  {bottomTabConfig[label]?.ActiveIcon}
+                </Animated.View>
               )}
             </TouchableOpacity>
           );

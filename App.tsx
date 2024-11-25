@@ -4,6 +4,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 import Navigation from './src';
+import {Colors} from './src/config';
 
 const App = () => {
   const {isConnected} = useNetInfo();
@@ -20,7 +21,7 @@ const App = () => {
         style={{
           flex: 1,
           justifyContent: 'center',
-          backgroundColor: 'grey',
+          backgroundColor: Colors.white,
         }}>
         <BottomSheetModalProvider>
           <Navigation />

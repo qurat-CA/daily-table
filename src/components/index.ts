@@ -13,6 +13,7 @@ import ModalWrapper from './wrapper/ModalWrapper';
 import SuccessModal from './Modals/Success';
 import {FormInputField} from './FormInputField';
 import ProfileBottomSheet from './ProfileBottomSheet';
+import GradientText from './GradientText';
 
 export {
   Typography,
@@ -30,4 +31,5 @@ export {
   FormInputField,
   SuccessModal,
   ProfileBottomSheet,
+  GradientText,
 };

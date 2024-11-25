@@ -6,23 +6,48 @@ const styles = StyleSheet.create({
   tabOuterContainer: {
     flex: 1,
     position: 'absolute',
-    bottom: Metrix.VerticalSize(-1),
+    bottom: Metrix.VerticalSize(0),
     height: Metrix.VerticalSize(75),
     backgroundColor: Colors.primary,
     width: '100%',
-    borderTopRightRadius: 26,
-    borderTopLeftRadius: 26,
-    paddingHorizontal: 20,
+    borderTopRightRadius: Metrix.HorizontalSize(26),
+    borderTopLeftRadius: Metrix.HorizontalSize(26),
+    paddingHorizontal: Metrix.HorizontalSize(30),
     // alignItems: 'center',
     flexDirection: 'row',
     // justifyContent: 'center',
     // ...shadow,
   },
-  curvedBackground: {
+
+  tabContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingBottom: Metrix.VerticalSize(12),
+    alignItems: 'center',
+    // backgroundColor: 'pink',
+    // marginLeft: 1,
+  },
+
+  animatedWhiteBGCircle: {
+    width: Metrix.HorizontalSize(70),
+    height: Metrix.HorizontalSize(70),
+    top: Metrix.VerticalSize(-40),
+    // left: 0,
+    // position: 'absolute',
+    backgroundColor: Colors.white,
+    borderRadius: 100,
+    zIndex: -2,
+  },
+
+  animatedCircle: {
+    width: Metrix.HorizontalSize(56),
+    height: Metrix.HorizontalSize(56),
     position: 'absolute',
-    width: '100%',
-    bottom: 0,
-    zIndex: -1, // Place the background behind the tabs
+    backgroundColor: Colors.primary,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: -2,
   },
 });
 

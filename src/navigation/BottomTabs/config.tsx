@@ -10,6 +10,7 @@ type BottomTabConfigType = {
     iconGray: string;
     headerShown: boolean;
     label: string;
+    ActiveIcon: JSX.Element;
   };
 };
 
@@ -23,6 +24,7 @@ export const bottomTabConfig: BottomTabConfigType = {
     iconGray: '1',
     headerShown: false,
     label: 'Home',
+    ActiveIcon: <TAB_SVGS.HomeTabActive />,
   },
   Quizzes: {
     screenName: 'Quizzes',
@@ -33,6 +35,7 @@ export const bottomTabConfig: BottomTabConfigType = {
     iconGray: '1',
     headerShown: false,
     label: 'Quizzes',
+    ActiveIcon: <TAB_SVGS.RewardsTabActive />,
   },
   MoneyPot: {
     screenName: 'MoneyPot',
@@ -43,6 +46,7 @@ export const bottomTabConfig: BottomTabConfigType = {
     iconGray: '1',
     headerShown: false,
     label: 'MoneyPot',
+    ActiveIcon: <TAB_SVGS.MoneyPotActive />,
   },
   Profile: {
     screenName: 'Profile',
@@ -53,5 +57,6 @@ export const bottomTabConfig: BottomTabConfigType = {
     iconGray: '1',
     headerShown: false,
     label: 'Profile',
+    ActiveIcon: <TAB_SVGS.ProfileTabActive width={24} height={24} />,
   },
 };

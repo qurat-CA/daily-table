@@ -31,6 +31,10 @@ import HomeTab from '../../assets/images/home-tab.svg';
 import QuizzesTab from '../../assets/images/quiz-tab.svg';
 import MoneyPotTab from '../../assets/images/moneypot-tab.svg';
 import ProfileTab from '../../assets/images/profile-tab.svg';
+import HomeTabActive from '../../assets/images/home-tab-active.svg';
+import RewardsTabActive from '../../assets/images/rewards-tab-active.svg';
+import MoneyPotActive from '../../assets/images/moneypot-tab-active.svg';
+import ProfileTabActive from '../../assets/images/profile-tab-active.svg';
 
 export const SVGS = {
   Logo,
@@ -68,6 +72,10 @@ export const TAB_SVGS = {
   QuizzesTab,
   MoneyPotTab,
   ProfileTab,
+  HomeTabActive,
+  RewardsTabActive,
+  MoneyPotActive,
+  ProfileTabActive,
 };
 
 export const Images = {
