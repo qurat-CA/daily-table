@@ -1,9 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {Colors} from '../../config';
 
 const MoneyPot = () => {
   return (
-    <View>
+    <View style={{flex: 1, backgroundColor: Colors.white}}>
       <Text>MoneyPot</Text>
     </View>
   );
