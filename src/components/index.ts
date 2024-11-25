@@ -17,6 +17,7 @@ import GradientText from './GradientText';
 import AppContainer from './wrapper/AppContainer';
 import UserHeader from './UserHeader';
 import SearchField from './SearchField';
+import ChildProfileCard from './Cards/ChildProfileCard';
 
 export {
   Typography,
@@ -38,4 +39,5 @@ export {
   AppContainer,
   UserHeader,
   SearchField,
+  ChildProfileCard,
 };

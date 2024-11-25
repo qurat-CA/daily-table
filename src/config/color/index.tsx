@@ -1,6 +1,7 @@
 const Colors = {
   primary: '#14133F',
   white: '#fff',
+  whiteV2: '#F0F0F0',
   blue: '#6DB4DD',
   darkblue: '#0C1927',
   pink: '#F15F7B',
@@ -13,6 +14,7 @@ const Colors = {
   green: '#8BC34A',
   greyV2: '#CACACA',
   greyV3: '#B2B2B2',
+  greyV4: '#EBEBEB',
   danger: '#FF0944',
 };
 

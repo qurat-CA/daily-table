@@ -29,6 +29,8 @@ import Camera from '../../assets/images/camera.svg';
 import NotificationIcon from '../../assets/images/notification-icon.svg';
 import SearchIcon from '../../assets/images/search-icon.svg';
 import FilterIcon from '../../assets/images/filter-icon.svg';
+import ProfileCardAge from '../../assets/images/profile-card-age.svg';
+import StreakIcon from '../../assets/images/fire.svg';
 
 import HomeTab from '../../assets/images/home-tab.svg';
 import QuizzesTab from '../../assets/images/quiz-tab.svg';
@@ -71,6 +73,8 @@ export const SVGS = {
   NotificationIcon,
   SearchIcon,
   FilterIcon,
+  ProfileCardAge,
+  StreakIcon,
 };
 
 export const TAB_SVGS = {

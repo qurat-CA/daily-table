@@ -4,7 +4,7 @@ import {FlexProps} from '../../config/type/appDataType';
 const Flex: React.FC<FlexProps> = ({
   children,
   justifyContent = 'flex-start',
-  alignItems = 'flex-start',
+  alignItems = 'center',
   mT = 0,
   mB = 0,
   gap = 0,
