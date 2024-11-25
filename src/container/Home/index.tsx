@@ -1,17 +1,42 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {Formik} from 'formik';
 
-import {AppContainer, Typography, UserHeader} from '../../components';
+import {
+  AppContainer,
+  SearchField,
+  Typography,
+  UserHeader,
+} from '../../components';
 import {Metrix} from '../../config';
 
 const Home = () => {
+  const handleSubmit = (values: any) => {
+    console.log('values', values);
+  };
+
   return (
     <AppContainer
       headerChildren={
-        <View style={{marginTop: Metrix.VerticalSize(50)}}>
+        <View style={{marginTop: Metrix.VerticalSize(70)}}>
           <UserHeader />
+          <Formik
+            initialValues={{search: ''}}
+            onSubmit={handleSubmit}
+            validateOnBlur={false}
+            validateOnChange={false}>
+            {({handleSubmit, handleChange, values, errors}) => (
+              <SearchField
+                value={values.search}
+                placeholder="Search"
+                onChange={handleChange('search')}
+                onSubmitEditing={handleSubmit}
+                error={errors.search}
+              />
+            )}
+          </Formik>
         </View>
       }>
-      <Typography>efhqie</Typography>
+      <Typography>heelo hihi</Typography>
     </AppContainer>
   );
 };

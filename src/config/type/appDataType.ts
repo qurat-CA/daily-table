@@ -42,7 +42,7 @@ export type FlexProps = {
     | 'stretch';
   gap?: number;
   flexWrap?: 'wrap' | 'nowrap';
-  style?: FlexStyle;
+  style?: ViewStyle;
 };
 
 export interface InputFieldProps {

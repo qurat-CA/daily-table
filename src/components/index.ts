@@ -16,6 +16,7 @@ import ProfileBottomSheet from './ProfileBottomSheet';
 import GradientText from './GradientText';
 import AppContainer from './wrapper/AppContainer';
 import UserHeader from './UserHeader';
+import SearchField from './SearchField';
 
 export {
   Typography,
@@ -36,4 +37,5 @@ export {
   GradientText,
   AppContainer,
   UserHeader,
+  SearchField,
 };

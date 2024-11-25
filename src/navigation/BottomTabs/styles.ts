@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   tabOuterContainer: {
     flex: 1,
     position: 'absolute',
-    bottom: Metrix.VerticalSize(0),
+    bottom: Metrix.VerticalSize(-1),
     ...shadow,
   },
 
