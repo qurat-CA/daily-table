@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     ...shadow,
   },
 
+  bottomTabStyle: {alignItems: 'center', justifyContent: 'center'},
+
   tabInnerContainer: {
     width: '100%',
     height: '100%',
@@ -23,6 +25,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+
+  animatedWhiteBGCircleCont: {position: 'relative'},
 
   animatedWhiteBGCircle: {
     width: Metrix.HorizontalSize(70),
@@ -42,6 +46,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: -2,
+  },
+
+  textStyle: {
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });
 

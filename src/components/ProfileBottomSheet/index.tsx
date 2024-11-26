@@ -1,8 +1,9 @@
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Alert, StyleSheet, TouchableOpacity} from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {PERMISSIONS} from 'react-native-permissions';
 
 import {Typography, BottomSheetComponent, Flex} from '../index';
-import {Metrix, NavigationService, SVGS} from '../../config';
+import {checkPermission, Metrix, NavigationService, SVGS} from '../../config';
 
 const ProfileBottomSheet = ({bottomSheetModalRef, setImageSelected}: any) => {
   const options = {
@@ -12,13 +13,24 @@ const ProfileBottomSheet = ({bottomSheetModalRef, setImageSelected}: any) => {
     maxWidth: 500,
   };
 
-  const handleAddImage = () => {
-    bottomSheetModalRef.current?.close();
-    launchImageLibrary(options, res => {
-      if (res.assets) {
-        setImageSelected(res.assets[0].uri);
-      }
-    });
+  const handleAddImage = async () => {
+    const isStorageGranted = await checkPermission(
+      PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE,
+    );
+
+    if (isStorageGranted) {
+      bottomSheetModalRef.current?.close();
+      launchImageLibrary(options, res => {
+        if (res.assets) {
+          setImageSelected(res.assets[0].uri);
+        }
+      });
+    } else {
+      Alert.alert(
+        'Permission Denied',
+        'You need to grant storage permissions to access your gallery.',
+      );
+    }
   };
 
   const handleTakePicture = () => {

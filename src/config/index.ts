@@ -8,6 +8,7 @@ import {
   forgetPasswordSchema,
   signinSchema,
 } from './validations/authValidations';
+import checkPermission from './permissions';
 
 export {
   NavigationService,
@@ -19,4 +20,5 @@ export {
   forgetPasswordSchema,
   signinSchema,
   gradientColors,
+  checkPermission,
 };

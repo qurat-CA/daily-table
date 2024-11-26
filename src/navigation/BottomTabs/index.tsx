@@ -43,7 +43,7 @@ const HomeTabs = () => {
     return (
       <View style={styles.tabOuterContainer}>
         <BottomTab
-          style={{alignItems: 'center', justifyContent: 'center'}}
+          style={styles.bottomTabStyle}
           currentFocusedTab={currentFocusedTab}>
           <View style={styles.tabInnerContainer}>
             {state?.routes?.map((route: any, index: number) => {
@@ -77,10 +77,7 @@ const HomeTabs = () => {
                   {isFocused ? (
                     <GradientText
                       colors={gradientColors}
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 'bold',
-                      }}>
+                      style={styles.textStyle}>
                       {label}
                     </GradientText>
                   ) : (
@@ -103,7 +100,7 @@ const HomeTabs = () => {
                         },
                         animatedFadeStyle,
                       ]}>
-                      <View style={{position: 'relative'}}>
+                      <View style={styles.animatedWhiteBGCircleCont}>
                         <View style={styles.animatedWhiteBGCircle} />
                       </View>
                     </Animated.View>
