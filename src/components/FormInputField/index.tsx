@@ -14,6 +14,7 @@ export const FormInputField = ({
   iconInactive,
   error,
   isPassword = false,
+  rightBtn,
 }: any) => (
   <View style={styles.nameCont}>
     <Typography semiBold mT={20} mB={10}>

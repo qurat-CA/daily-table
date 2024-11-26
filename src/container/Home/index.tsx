@@ -10,7 +10,7 @@ import {
   Typography,
   UserHeader,
 } from '../../components';
-import {Colors, Metrix} from '../../config';
+import {Colors, Metrix, NavigationService} from '../../config';
 import ChildProfileData from './data';
 
 const Home = () => {
@@ -47,7 +47,9 @@ const Home = () => {
 
         <StandardButton
           title="+ Add a Child"
-          onPress={() => {}}
+          onPress={() => {
+            NavigationService.navigate('AddChild', {});
+          }}
           useLinearGradient
           style={styles.btnStyle}
           textSize={11}
@@ -58,7 +60,10 @@ const Home = () => {
         renderItem={({item}) => <ChildProfileCard item={item} />}
         numColumns={2}
         columnWrapperStyle={{justifyContent: 'space-between'}}
-        style={{marginTop: Metrix.VerticalSize(32)}}
+        style={{
+          marginTop: Metrix.VerticalSize(32),
+          paddingBottom: Metrix.VerticalSize(115),
+        }}
       />
     </AppContainer>
   );

@@ -13,6 +13,7 @@ import SelectAvatar from './SelectAvatar';
 import Quizzes from './Quizzes';
 import MoneyPot from './MoneyPot';
 import Profile from './Profile';
+import AddChild from './AddChild';
 
 export {
   Splash,
@@ -30,4 +31,5 @@ export {
   Quizzes,
   MoneyPot,
   Profile,
+  AddChild,
 };

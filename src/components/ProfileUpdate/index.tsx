@@ -1,20 +1,25 @@
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {Metrix, SVGS} from '../../config';
 
 type ProfileUpdateProps = {
   onPress: () => void;
+  imageUri?: string;
 };
 
-const ProfileUpdate = ({onPress}: ProfileUpdateProps) => {
+const ProfileUpdate = ({onPress, imageUri}: ProfileUpdateProps) => {
   return (
     <>
       <TouchableOpacity
         activeOpacity={Metrix.ActiveOpacity}
         style={styles.profileCont}
         onPress={onPress}>
-        <SVGS.ProfieSvg />
+        {imageUri ? (
+          <Image source={{uri: imageUri}} style={styles.profileImage} />
+        ) : (
+          <SVGS.ProfieSvg />
+        )}
 
         <LinearGradient
           colors={['#8052A0', '#55A0D7', '#85D3EB']}
@@ -47,5 +52,10 @@ const styles = StyleSheet.create({
     left: Metrix.HorizontalSize(93),
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  profileImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 100,
   },
 });

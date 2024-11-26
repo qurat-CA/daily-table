@@ -18,6 +18,8 @@ export type RootStackParamList = {
 export type AppStackParamList = {
   HomeTabs: undefined;
   Home: undefined;
+  AddChild: undefined;
+  SelectAvatar: undefined;
 };
 
 type SigninScreenRouteProp = RouteProp<RootStackParamList, 'Signin'>;

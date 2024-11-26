@@ -1,6 +1,6 @@
 import {AppStackParamList} from '../config/type/navigation';
 
-import {Home} from '../container';
+import {AddChild, Home, SelectAvatar} from '../container';
 import HomeTabs from './BottomTabs';
 
 export const AppStack: {
@@ -17,5 +17,15 @@ export const AppStack: {
     key: 'Home',
     component: Home,
     name: 'Home',
+  },
+  {
+    key: 'AddChild',
+    component: AddChild,
+    name: 'AddChild',
+  },
+  {
+    key: 'SelectAvatar',
+    component: SelectAvatar,
+    name: 'SelectAvatar',
   },
 ];
