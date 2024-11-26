@@ -3,8 +3,8 @@ import {TextInput, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {InputFieldProps} from '../../config/type/appDataType';
-import {Colors, Metrix, SVGS} from '../../config';
-import styles, {gradientColors} from './styles';
+import {Colors, gradientColors, Metrix, SVGS} from '../../config';
+import styles from './styles';
 import Typography from '../Typography';
 
 const InputField: React.FC<InputFieldProps> = ({

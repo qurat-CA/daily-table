@@ -30,4 +30,15 @@ export const shadow = {
   elevation: 9,
 };
 
+export const gradientColors = [
+  '#FDDB32',
+  '#FBCF35',
+  '#F9B140',
+  '#F47F50',
+  '#EF3C67',
+  '#EC1A73',
+  '#B53689',
+  '#8052A0',
+];
+
 export {Colors};

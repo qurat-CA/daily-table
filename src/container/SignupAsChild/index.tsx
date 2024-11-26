@@ -13,8 +13,7 @@ import {
   StandardButton,
   Typography,
 } from '../../components';
-import {SVGS} from '../../config';
-import {gradientColors} from '../../components/InputField/styles';
+import {gradientColors, SVGS} from '../../config';
 
 const SignupAsChild = () => {
   const [focusedField, setFocusedField] = useState<string | null>('firstName');

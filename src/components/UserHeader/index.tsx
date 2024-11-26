@@ -2,8 +2,7 @@ import {Image, StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {Flex, Typography} from '../index';
-import {gradientColors} from '../InputField/styles';
-import {Colors, Metrix, SVGS} from '../../config';
+import {Colors, gradientColors, Metrix, SVGS} from '../../config';
 
 const ImageUrl =
   'https://s3-alpha-sig.figma.com/img/461e/ab91/2248c9dd4260467a07427c1c7e751adb?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hOeD~U-Kf3zc937a~jbxkmDUMxU4nd5WhPH1aQyC1kdsbQRmvPSKeWFwSX8pMQ3e10rpaGJqrO1-p0Ut5IYxHJbqCzMwcJlVJUpFSBfdgE4Z9L7rAToWEUfMBMyD02n66HJcBuKDRIxzW4qv1zFGxJW5OfTB~jJxKnx1asm2ZyM0tNgtLq8m1er5XXs7xvup3MZhHfHX20VFhJFvHRbP0hu8h35qv0axYB0quem4selxnGIEPGS1-tJRLyGckMOFtbHVtX4cKDatE2GZUhv7BFMrxtQtzQipeI~sXvp3TlVxvgBqfbQ5uT-gPNmH84ZKZ8NrbCChha2vUfmkPHvB3g__';

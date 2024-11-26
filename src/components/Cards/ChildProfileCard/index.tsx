@@ -2,8 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {Colors, Metrix, SVGS} from '../../../config';
-import {gradientColors} from '../../InputField/styles';
+import {Colors, gradientColors, Metrix, SVGS} from '../../../config';
 import {Flex, Typography} from '../../index';
 
 interface ChildProfileItem {

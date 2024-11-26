@@ -9,8 +9,7 @@ import Animated, {
 
 import {GradientText, Typography} from '../../components';
 import {bottomTabConfig} from './config';
-import {Colors, Metrix} from '../../config';
-import {gradientColors} from '../../components/InputField/styles';
+import {Colors, gradientColors, Metrix} from '../../config';
 import styles from './styles';
 
 const HomeTabNavigation = createBottomTabNavigator();

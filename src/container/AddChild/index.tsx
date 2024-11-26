@@ -13,8 +13,7 @@ import {
   Typography,
 } from '../../components';
 import {Formik} from 'formik';
-import {SVGS} from '../../config';
-import {gradientColors} from '../../components/InputField/styles';
+import {gradientColors, SVGS} from '../../config';
 
 const AddChild = () => {
   const [focusedField, setFocusedField] = useState<string | null>('firstName');

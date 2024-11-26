@@ -2,9 +2,8 @@ import {useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {Dropdown} from 'react-native-element-dropdown';
 
-import {Colors, Metrix} from '../../config';
+import {Colors, gradientColors, Metrix} from '../../config';
 import {Typography} from '../index';
-import {gradientColors} from '../InputField/styles';
 import styles from './style';
 
 interface DropdownItem {

@@ -3,8 +3,7 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import {Typography, Flex} from '../index';
-import {Colors, Metrix} from '../../config';
-import {gradientColors} from '../InputField/styles';
+import {Colors, gradientColors, Metrix} from '../../config';
 
 const LevelIncrease = () => {
   const [selectedLevel, setSelectedLevel] = useState(0);
