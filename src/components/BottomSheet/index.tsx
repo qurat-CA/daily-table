@@ -14,7 +14,7 @@ const BottomSheetComponent = forwardRef<
     <BottomSheetModal
       backgroundStyle={{borderRadius: 50, backgroundColor: Colors.white}}
       handleIndicatorStyle={{
-        backgroundColor: '#DFE2EB',
+        backgroundColor: Colors.greyV10,
         width: Metrix.HorizontalSize(60),
         height: Metrix.VerticalSize(6),
       }}

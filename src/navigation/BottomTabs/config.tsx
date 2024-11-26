@@ -19,7 +19,9 @@ export const bottomTabConfig: BottomTabConfigType = {
     screenName: 'Home',
     component: Home,
     icon: (isFocused: boolean) => {
-      return <TAB_SVGS.HomeTab stroke={isFocused ? Colors.purpleV2 : '#000'} />;
+      return (
+        <TAB_SVGS.HomeTab stroke={isFocused ? Colors.purpleV2 : Colors.black} />
+      );
     },
     iconGray: '1',
     headerShown: false,

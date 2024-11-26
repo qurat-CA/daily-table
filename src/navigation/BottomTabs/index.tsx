@@ -87,7 +87,7 @@ const HomeTabs = () => {
                     <Typography
                       mT={5}
                       size={12}
-                      color={isFocused ? Colors.purpleV2 : '#9DB2CE'}>
+                      color={isFocused ? Colors.purpleV2 : Colors.lightblue}>
                       {label}
                     </Typography>
                   )}

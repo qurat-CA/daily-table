@@ -24,18 +24,23 @@ const LevelIncrease = () => {
             start={{x: 0.5, y: 1}}
             end={{x: 0.5, y: 0}}
             colors={
-              selectedLevel === i ? gradientColors : ['#F9F9F9', '#F9F9F9']
+              selectedLevel === i
+                ? gradientColors
+                : [Colors.whiteV3, Colors.whiteV3]
             }
             style={styles.linearCont}>
             <View
               style={[
                 styles.innerCont,
-                selectedLevel !== i && {borderWidth: 1, borderColor: '#CACACA'},
+                selectedLevel !== i && {
+                  borderWidth: 1,
+                  borderColor: Colors.greyV2,
+                },
               ]}>
               <View
                 style={[
                   styles.chipCont,
-                  selectedLevel !== i && {backgroundColor: '#F9F9F9'},
+                  selectedLevel !== i && {backgroundColor: Colors.whiteV3},
                 ]}>
                 <Typography
                   size={14}
@@ -60,7 +65,7 @@ const styles = StyleSheet.create({
     padding: 1,
   },
   innerCont: {
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
     borderRadius: 40,
   },
   chipCont: {
@@ -69,6 +74,5 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#B5368924',
   },
 });

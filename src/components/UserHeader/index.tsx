@@ -22,7 +22,7 @@ const UserHeader = () => {
         </LinearGradient>
 
         <View>
-          <Typography light size={12} color="#E0E0E0">
+          <Typography light size={12} color={Colors.lightgrey}>
             Good Morning 👋
           </Typography>
 

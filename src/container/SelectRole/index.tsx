@@ -25,7 +25,12 @@ const SelectRole = () => {
         Select Role
       </Typography>
 
-      <Typography color="#818181" mT={5} size={15} mB={36} letterSpacing={0.2}>
+      <Typography
+        color={Colors.greyV8}
+        mT={5}
+        size={15}
+        mB={36}
+        letterSpacing={0.2}>
         Select your role as a Parent or a Child to continue.
       </Typography>
 
@@ -38,7 +43,7 @@ const SelectRole = () => {
           <View
             style={[
               styles.radioButton,
-              item.role !== selectedRole && {borderColor: '#898989'},
+              item.role !== selectedRole && {borderColor: Colors.greyV7},
             ]}>
             {item.role === selectedRole && <View style={styles.radioFill} />}
           </View>

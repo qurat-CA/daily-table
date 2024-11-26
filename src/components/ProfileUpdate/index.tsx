@@ -1,7 +1,7 @@
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {Metrix, SVGS} from '../../config';
+import {Colors, Metrix, SVGS} from '../../config';
 
 type ProfileUpdateProps = {
   onPress: () => void;
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   profileCont: {
     width: Metrix.HorizontalSize(126),
     height: Metrix.VerticalSize(126),
-    backgroundColor: '#D6DAE34D',
+    backgroundColor: Colors.darkgrey,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100,

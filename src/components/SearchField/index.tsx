@@ -25,7 +25,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
         value={value}
         style={styles.input}
         placeholder={placeholder}
-        placeholderTextColor={'#808080'}
+        placeholderTextColor={Colors.placeholderColor}
         onSubmitEditing={onSubmitEditing}
       />
       <SVGS.FilterIcon />
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   input: {
     height: Metrix.VerticalSize(56),
     flex: 1,
-    color: '#808080',
+    color: Colors.placeholderColor,
     fontSize: 13,
     ...fonts.medium(),
   },

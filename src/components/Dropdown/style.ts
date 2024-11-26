@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 
   dropdown: {
     height: Metrix.VerticalSize(56),
-    backgroundColor: '#F9F9F9',
+    backgroundColor: Colors.whiteV3,
     borderRadius: Metrix.Radius,
     paddingHorizontal: Metrix.HorizontalSize(16),
   },

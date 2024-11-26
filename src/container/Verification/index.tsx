@@ -51,7 +51,7 @@ const Verification = () => {
         </Flex>
 
         <Flex mT={10} justifyContent="center">
-          <Typography letterSpacing={0.2} size={14} color="#ADADAD">
+          <Typography letterSpacing={0.2} size={14} color={Colors.greyV6}>
             Resend in{' '}
             <Typography
               letterSpacing={0.2}
@@ -59,7 +59,7 @@ const Verification = () => {
               medium
               color={Colors.pink}>
               0:56{' '}
-              <Typography letterSpacing={0.2} size={14} color="#ADADAD">
+              <Typography letterSpacing={0.2} size={14} color={Colors.greyV6}>
                 secs
               </Typography>
             </Typography>

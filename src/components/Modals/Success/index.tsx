@@ -31,7 +31,7 @@ const SuccessModal = ({isVisible, setVisible}: LogoutProps) => {
           NavigationService.navigate('Signin', {role: 'parent'});
         }}
         useLinearGradient
-        gradientColors={['#0C1927', '#2B5A8D']}
+        gradientColors={[Colors.darkblue, Colors.blueV3]}
         mT={34}
         mB={45}
       />

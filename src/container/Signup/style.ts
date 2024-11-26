@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   profileCont: {
     width: Metrix.HorizontalSize(126),
     height: Metrix.VerticalSize(126),
-    backgroundColor: '#D6DAE34D',
+    backgroundColor: Colors.darkgrey,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100,

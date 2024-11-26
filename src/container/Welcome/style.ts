@@ -51,7 +51,7 @@ export default StyleSheet.create({
   },
 
   dotStyle: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: Colors.greyV5,
     width: Metrix.HorizontalSize(8),
     height: Metrix.VerticalSize(8),
     borderRadius: 5,

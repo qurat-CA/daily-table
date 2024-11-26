@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     height: Metrix.VerticalSize(20),
     borderRadius: Metrix.VerticalSize(100),
     borderWidth: 1,
-    borderColor: '#4A90E2',
+    borderColor: Colors.blueV2,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     width: Metrix.VerticalSize(13),
     height: Metrix.VerticalSize(13),
     borderRadius: Metrix.VerticalSize(100),
-    backgroundColor: '#4A90E2',
+    backgroundColor: Colors.blueV2,
   },
   selectedRole: {
     borderRadius: Metrix.VerticalSize(100),
