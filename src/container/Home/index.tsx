@@ -6,6 +6,7 @@ import {
   ChildProfileCard,
   Flex,
   SearchField,
+  StandardButton,
   Typography,
   UserHeader,
 } from '../../components';
@@ -39,10 +40,18 @@ const Home = () => {
           </Formik>
         </View>
       }>
-      <Flex>
-        <Typography mT={38} size={18} bold color={Colors.darkblue}>
+      <Flex mT={32} alignItems="center" justifyContent="space-between">
+        <Typography size={18} bold color={Colors.darkblue}>
           Child Profiles
         </Typography>
+
+        <StandardButton
+          title="+ Add a Child"
+          onPress={() => {}}
+          useLinearGradient
+          style={styles.btnStyle}
+          textSize={11}
+        />
       </Flex>
       <FlatList
         data={ChildProfileData}
@@ -59,4 +68,8 @@ export default Home;
 
 const styles = StyleSheet.create({
   headerCont: {marginTop: Metrix.VerticalSize(70)},
+  btnStyle: {
+    marginLeft: Metrix.HorizontalSize(10),
+    width: Metrix.HorizontalSize(130),
+  },
 });
