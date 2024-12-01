@@ -57,7 +57,7 @@ const InputField: React.FC<InputFieldProps> = ({
             <TouchableOpacity
               activeOpacity={Metrix.ActiveOpacity}
               onPress={() => setHidePassword(!hidePassword)}>
-              {hidePassword ? (
+              {/* {hidePassword ? (
                 focused ? (
                   <SVGS.EyeCloseFocus />
                 ) : (
@@ -67,7 +67,9 @@ const InputField: React.FC<InputFieldProps> = ({
                 <SVGS.EyeOpenFocus />
               ) : (
                 <SVGS.EyeOpen />
-              )}
+              )} */}
+
+              <SVGS.EyeOpen color={focused? Colors.pink: Colors.greyV2}/>
             </TouchableOpacity>
           )}
 
