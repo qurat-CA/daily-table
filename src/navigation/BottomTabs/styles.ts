@@ -21,7 +21,11 @@ const styles = StyleSheet.create({
 
   tabContainer: {
     flex: 1,
+    // backgroundColor: "pink",
+    
+    minHeight: Metrix.VerticalSize(52),
     alignItems: 'center',
+    justifyContent: "flex-end"
   },
 
   animatedWhiteBGCircle: {
@@ -39,6 +43,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: Colors.primary,
     borderRadius: 100,
+    // top: Metrix.VerticalSize(-45),
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: -2,

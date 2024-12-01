@@ -63,7 +63,7 @@ const HomeTabs = () => {
 
               if (isFocused) {
                 setCurrentFocusedTab(index);
-                animateCircle(20);
+                animateCircle(35);
                 fadeIn();
               }
 
